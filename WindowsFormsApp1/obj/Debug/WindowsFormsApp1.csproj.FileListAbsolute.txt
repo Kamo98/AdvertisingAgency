@@ -7,3 +7,13 @@ H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Npgsql.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Mono.Security.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Npgsql.pdb
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Npgsql.xml
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\de\Npgsql.resources.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\es\Npgsql.resources.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\fi\Npgsql.resources.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\fr\Npgsql.resources.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ja\Npgsql.resources.dll
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zh-CN\Npgsql.resources.dll
