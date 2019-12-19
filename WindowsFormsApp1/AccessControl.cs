@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -65,7 +66,7 @@ namespace WindowsFormsApp1
 
 		/*Роль авторизированного пользователя*/
 		private static Role curentRole = 0;
-		private static Role CurentRole { get => curentRole;}
+		public static Role CurentRole { get => curentRole;}
 
 
 		/*
@@ -90,9 +91,9 @@ namespace WindowsFormsApp1
 		 * Здесь устанавливается соединение с БД
 		 * и определяются роли пользователя
 		 * */
-		public static bool log_in(String login, String pass, out NpgsqlConnection npgSqlConnection)
+		public static bool log_in(string login, string pass, out NpgsqlConnection npgSqlConnection)
 		{
-			String connectionString = "Server=database-2.cx7kyl76gv42.us-east-2.rds.amazonaws.com;Port=5432;User="
+			string connectionString = "Server=database-2.cx7kyl76gv42.us-east-2.rds.amazonaws.com;Port=5432;User="
 							+ login + ";Password=" + pass + ";Database=Database2;";
 
 			//Создание соединения с БД

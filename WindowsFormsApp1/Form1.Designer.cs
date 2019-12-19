@@ -63,6 +63,7 @@
 			this.textBoxLogin.Name = "textBoxLogin";
 			this.textBoxLogin.Size = new System.Drawing.Size(264, 20);
 			this.textBoxLogin.TabIndex = 2;
+			this.textBoxLogin.Text = "Kamo98";
 			// 
 			// textBoxPass
 			// 
@@ -70,6 +71,7 @@
 			this.textBoxPass.Name = "textBoxPass";
 			this.textBoxPass.Size = new System.Drawing.Size(264, 20);
 			this.textBoxPass.TabIndex = 3;
+			this.textBoxPass.Text = "Ntcnbhjdfybt_01";
 			// 
 			// label1
 			// 
@@ -119,7 +121,7 @@
 			this.Controls.Add(this.mainMenuStrip);
 			this.MainMenuStrip = this.mainMenuStrip;
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Advertising agency";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.panelAuthorization.ResumeLayout(false);
 			this.panelAuthorization.PerformLayout();
