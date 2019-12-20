@@ -17,3 +17,25 @@ H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\fr\Npgsql.resources.dll
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ja\Npgsql.resources.dll
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Npgsql.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Mono.Security.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Npgsql.pdb
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Npgsql.xml
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\de\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\es\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\fi\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\fr\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\ja\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.EmployeeForm.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

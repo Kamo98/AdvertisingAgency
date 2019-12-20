@@ -91,22 +91,23 @@ namespace WindowsFormsApp1
 		 * Здесь устанавливается соединение с БД
 		 * и определяются роли пользователя
 		 * */
-		public static bool log_in(string login, string pass, out NpgsqlConnection npgSqlConnection)
+		public static bool log_in(string login, string pass)
 		{
 			string connectionString = "Server=database-2.cx7kyl76gv42.us-east-2.rds.amazonaws.com;Port=5432;User="
 							+ login + ";Password=" + pass + ";Database=Database2;";
 
-			//Создание соединения с БД
-			npgSqlConnection = new NpgsqlConnection(connectionString);
-			npgSqlConnection.Open();
+            //Создание соединения с БД
+            
+            ConnectionSettings.npgSqlConnection = new NpgsqlConnection(connectionString);
+            ConnectionSettings.npgSqlConnection.Open();
 
 
 			//Тут надо как-то проверять, что такой юзер есть и соединение установлено
 			
 
 			//Создаём и выполняем запрос на членство пользователя в ролях
-			String qyery_roles = "select \"role_name\" from \"information_schema\".\"applicable_roles\" where \"grantee\" = '" + login + "';";
-			NpgsqlCommand npgSqlCommand = new NpgsqlCommand(qyery_roles, npgSqlConnection);
+			String query_roles = "select \"role_name\" from \"information_schema\".\"applicable_roles\" where \"grantee\" = '" + login + "';";
+			NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query_roles, ConnectionSettings.npgSqlConnection);
 			NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 
 			if (npgSqlDataReader.HasRows)

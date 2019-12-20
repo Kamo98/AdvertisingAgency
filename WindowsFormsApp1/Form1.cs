@@ -15,14 +15,11 @@ namespace WindowsFormsApp1
 {
 	public partial class Form1 : Form
 	{
-		NpgsqlConnection npgSqlConnection;		//Соединение с БД
 
-
-		public Form1()
+        public Form1()
 		{
 			InitializeComponent();
-
-			npgSqlConnection = null;
+            ConnectionSettings.npgSqlConnection = null;
 		}
 
 
@@ -33,14 +30,14 @@ namespace WindowsFormsApp1
 			string login = textBoxLogin.Text;
 			string pass = textBoxPass.Text;
 
-			bool logIn = AccessControl.log_in(login, pass, out npgSqlConnection);
+			bool logIn = AccessControl.log_in(login, pass);
 
 			if (logIn)
 			{
 
 				/*Получить из БД имя и должность сотрудника*/
 				string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
-				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
+				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, ConnectionSettings.npgSqlConnection);
 				NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 				if (npgSqlDataReader.HasRows)
 				{
@@ -57,7 +54,10 @@ namespace WindowsFormsApp1
 					
 					//и создать меню
 				create_menu();
-			}
+
+
+                this.Controls.Add(ButtonBuilder.Get_AddEmployeeBtn());
+            }
 			else
 			{
 				MessageBox.Show("Что-то пошло не так!");
@@ -116,8 +116,8 @@ namespace WindowsFormsApp1
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (npgSqlConnection != null)
-				npgSqlConnection.Close();
+			if (ConnectionSettings.npgSqlConnection != null)
+                ConnectionSettings.npgSqlConnection.Close();
 		}
 		
 	}
