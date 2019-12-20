@@ -65,8 +65,8 @@ namespace WindowsFormsApp1
 
 
 		/*Роль авторизированного пользователя*/
-		private static Role curentRole = 0;
-		public static Role CurentRole { get => curentRole;}
+		private static Role currentRole = 0;
+		public static Role CurrentRole { get => currentRole;}
 
 
 		/*
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
 			//ArrayList roles = new ArrayList();
 			string res = "";
 			foreach (KeyValuePair<Role, string> role in idRole2nameRole)
-				if ((curentRole & role.Key) != 0)
+				if ((currentRole & role.Key) != 0)
 					//roles.Add(role.Value);
 					res += role.Value + "  ";
 			return res;
@@ -91,17 +91,24 @@ namespace WindowsFormsApp1
 		 * Здесь устанавливается соединение с БД
 		 * и определяются роли пользователя
 		 * */
-		public static bool log_in(string login, string pass, out NpgsqlConnection npgSqlConnection)
+		public static String log_in(string login, string pass, out NpgsqlConnection npgSqlConnection)
 		{
 			string connectionString = "Server=database-2.cx7kyl76gv42.us-east-2.rds.amazonaws.com;Port=5432;User="
 							+ login + ";Password=" + pass + ";Database=Database2;";
 
 			//Создание соединения с БД
 			npgSqlConnection = new NpgsqlConnection(connectionString);
-			npgSqlConnection.Open();
 
-
-			//Тут надо как-то проверять, что такой юзер есть и соединение установлено
+            //Обработка исключения при создания исключения, тут выведется сообщение о неверном логине или пароле
+            try
+            {
+			    npgSqlConnection.Open();
+            }
+            catch(NpgsqlException e)
+            {
+                npgSqlConnection = null;
+                return "Неверный пользователь или пароль!";
+            }
 			
 
 			//Создаём и выполняем запрос на членство пользователя в ролях
@@ -111,17 +118,20 @@ namespace WindowsFormsApp1
 
 			if (npgSqlDataReader.HasRows)
 			{
-				//Проходим по всем ролям авторизированного пользователя и заполняем curentRole
+				//Проходим по всем ролям авторизированного пользователя и заполняем currentRole
 				foreach (DbDataRecord dbDataRecord in npgSqlDataReader)
 					if (nameRole2idRole.ContainsKey(dbDataRecord["role_name"].ToString()))
-						curentRole |= nameRole2idRole[dbDataRecord["role_name"].ToString()];
+						currentRole |= nameRole2idRole[dbDataRecord["role_name"].ToString()];
 			}
 			else
-				return false;       //У пользователя вообще нет ролей
-
-			//Если curentRole = 0, то у пользователя нет интересующих нас ролей
-			//return curentRole != 0;
-			return true;
+            {
+                npgSqlConnection = null;
+				return "Данный пользователь не имеет прав для входа в систему";  //У пользователя вообще нет ролей
+            }
+                
+			//Если currentRole = 0, то у пользователя нет интересующих нас ролей
+			//return currentRole != 0;
+			return "Всё ок";
 		}
 
 		static void create_main_menu()

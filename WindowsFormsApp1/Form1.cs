@@ -33,9 +33,9 @@ namespace WindowsFormsApp1
 			string login = textBoxLogin.Text;
 			string pass = textBoxPass.Text;
 
-			bool logIn = AccessControl.log_in(login, pass, out npgSqlConnection);
+			string message = AccessControl.log_in(login, pass, out npgSqlConnection);
 
-			if (logIn)
+			if (npgSqlConnection != null)
 			{
 
 				/*Получить из БД имя и должность сотрудника*/
@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
 			}
 			else
 			{
-				MessageBox.Show("Что-то пошло не так!");
+				MessageBox.Show(message);
 			}
 
 		}
@@ -97,13 +97,13 @@ namespace WindowsFormsApp1
 
 
 			//Заполняем эти массивы
-			if (AccessControl.CurentRole == 0)
+			if (AccessControl.CurrentRole == 0)
 				return;
 
-			if ((AccessControl.CurentRole & AccessControl.Role.customer_relations_officer) != 0)
+			if ((AccessControl.CurrentRole & AccessControl.Role.customer_relations_officer) != 0)
 				//Добавить пункы меню для сотрудника отдела по работе с клиентами
 				arrForTest1.Add(test1item);
-			if ((AccessControl.CurentRole & AccessControl.Role.chief_of_department) != 0)
+			if ((AccessControl.CurrentRole & AccessControl.Role.chief_of_department) != 0)
 				//Добавить пункы меню для руководителя отдела
 				arrForTest1.Add(test2item);
 
