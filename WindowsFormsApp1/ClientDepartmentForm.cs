@@ -13,7 +13,12 @@ namespace WindowsFormsApp1
     //Интерфейс для отдела клиентов
     public partial class ClientDepartmentForm : BaseForm
     {
-        public ClientDepartmentForm(Form parent) : base(parent)
+        public ClientDepartmentForm()
+        {
+            InitializeComponent();
+        }
+
+        public ClientDepartmentForm(Form1 parent) : base(parent)
         {
             InitializeComponent();
         }

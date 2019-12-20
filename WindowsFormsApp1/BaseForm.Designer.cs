@@ -34,7 +34,10 @@
             this.типыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типыРекламныхПлощадокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.текущийПрофильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +46,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.типыМатериаловToolStripMenuItem,
             this.настройкиToolStripMenuItem,
+            this.настройкиToolStripMenuItem1,
             this.выходToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -64,7 +68,7 @@
             // типыМатериаловToolStripMenuItem1
             // 
             this.типыМатериаловToolStripMenuItem1.Name = "типыМатериаловToolStripMenuItem1";
-            this.типыМатериаловToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.типыМатериаловToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
             this.типыМатериаловToolStripMenuItem1.Text = "Типы материалов";
             // 
             // типыToolStripMenuItem
@@ -82,9 +86,20 @@
             // 
             // настройкиToolStripMenuItem
             // 
+            this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.текущийПрофильToolStripMenuItem,
+            this.сменитьПользователяToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.настройкиToolStripMenuItem.Text = "Профиль";
+            this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
+            // 
+            // текущийПрофильToolStripMenuItem
+            // 
+            this.текущийПрофильToolStripMenuItem.Name = "текущийПрофильToolStripMenuItem";
+            this.текущийПрофильToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.текущийПрофильToolStripMenuItem.Text = "Информация";
+            this.текущийПрофильToolStripMenuItem.Click += new System.EventHandler(this.текущийПрофильToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
@@ -92,6 +107,19 @@
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // сменитьПользователяToolStripMenuItem
+            // 
+            this.сменитьПользователяToolStripMenuItem.Name = "сменитьПользователяToolStripMenuItem";
+            this.сменитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
+            this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.сменитьПользователяToolStripMenuItem_Click);
+            // 
+            // настройкиToolStripMenuItem1
+            // 
+            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem1.Text = "Настройки";
             // 
             // BaseForm
             // 
@@ -118,5 +146,8 @@
         private System.Windows.Forms.ToolStripMenuItem типыРекламныхПлощадокToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem текущийПрофильToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem1;
     }
 }

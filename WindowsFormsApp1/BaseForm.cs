@@ -15,11 +15,24 @@ namespace WindowsFormsApp1
     {   
         /*Указатель на форму, породившую данную (форма с логином). Это поле предназаначено для того, 
          *чтобы вызвать форму логина при выходе из текущей учётной записи* */
-        Form parentForm; 
-        public BaseForm(Form parent)
+        Form1 parentForm; 
+
+        //Форма логина, породившая данную.
+        public Form1 ParentLoginForm
+        {
+            get => parentForm;
+            set => parentForm = value;
+        }
+
+        public BaseForm(Form1 parent)
         {
             InitializeComponent();
             this.parentForm = parent;
+        }
+
+        public BaseForm()
+        {
+            InitializeComponent();
         }
 
         private void типыМатериаловToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,12 +47,29 @@ namespace WindowsFormsApp1
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы уверены, что хотите выйти из учётной записи?","Выход из учётной записи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
+            this.Close();
+            parentForm.Close();
+        }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите выйти из учётной записи?", "Выход из учётной записи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 this.Hide();
                 parentForm.Show();
             }
+        }
+
+        private void текущийПрофильToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ФИО: " + parentForm.Employee.FIO + "\n" +
+                            "Должность: " + parentForm.Employee.Position);
         }
     }
 }

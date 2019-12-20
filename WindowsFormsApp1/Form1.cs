@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 	public partial class Form1 : Form
 	{
 		NpgsqlConnection npgSqlConnection;		//Соединение с БД
+        Employee employee;
 
 
 		public Form1()
@@ -24,6 +25,13 @@ namespace WindowsFormsApp1
 
 			npgSqlConnection = null;
 		}
+
+        //Свойство сотрудника, для передачи дочерним формам 
+        public Employee Employee
+        {
+            get => employee;
+            set => employee = value;
+        }
 
 
 		/*Авторизация*/
@@ -37,19 +45,21 @@ namespace WindowsFormsApp1
 
 			if (npgSqlConnection != null)
 			{
-
+                
 				/*Получить из БД имя и должность сотрудника*/
-				//string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
-				//NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
-				//NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
-				//if (npgSqlDataReader.HasRows)
-				//{
-				//	foreach (DbDataRecord oneEmploye in npgSqlDataReader)
-				//	{
-				//		this.Text += "  | " + oneEmploye["FIO"] + "  |  " + oneEmploye["Position"];
-				//		break;
-				//	}
-				//}
+				string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
+				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
+				NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
+				if (npgSqlDataReader.HasRows)
+				{
+                    //employee = new Employee((DbDataRecord)npgSqlDataReader[0]);
+					foreach (DbDataRecord oneEmployee in npgSqlDataReader)
+					{
+                        //this.Text += "  | " + oneEmployee["FIO"] + "  |  " + oneEmployee["Position"];
+                        employee = new Employee(oneEmployee);
+						break;
+					}
+				}
 
 
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());
