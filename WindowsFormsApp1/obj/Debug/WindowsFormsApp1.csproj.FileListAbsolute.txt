@@ -17,3 +17,26 @@ H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\fr\Npgsql.resources.dll
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ja\Npgsql.resources.dll
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Npgsql.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Mono.Security.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Npgsql.pdb
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\Npgsql.xml
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\de\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\es\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BaseForm.resources
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialTypeForm.resources

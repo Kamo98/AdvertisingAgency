@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 	public partial class Form1 : Form
 	{
 		NpgsqlConnection npgSqlConnection;		//Соединение с БД
+        Employee employee;
 
 
 		public Form1()
@@ -25,6 +26,13 @@ namespace WindowsFormsApp1
 			npgSqlConnection = null;
 		}
 
+        //Свойство сотрудника, для передачи дочерним формам 
+        public Employee Employee
+        {
+            get => employee;
+            set => employee = value;
+        }
+
 
 		/*Авторизация*/
 		private void btnSignIn_Click(object sender, EventArgs e)
@@ -33,38 +41,45 @@ namespace WindowsFormsApp1
 			string login = textBoxLogin.Text;
 			string pass = textBoxPass.Text;
 
-			bool logIn = AccessControl.log_in(login, pass, out npgSqlConnection);
+			string message = AccessControl.log_in(login, pass, out npgSqlConnection);
 
-			if (logIn)
+			if (npgSqlConnection != null)
 			{
-
+                
 				/*Получить из БД имя и должность сотрудника*/
 				string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
 				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
 				NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 				if (npgSqlDataReader.HasRows)
 				{
-					foreach (DbDataRecord oneEmploye in npgSqlDataReader)
+                    //employee = new Employee((DbDataRecord)npgSqlDataReader[0]);
+					foreach (DbDataRecord oneEmployee in npgSqlDataReader)
 					{
-						this.Text += "  | " + oneEmploye["FIO"] + "  |  " + oneEmploye["Position"];
+                        //this.Text += "  | " + oneEmployee["FIO"] + "  |  " + oneEmployee["Position"];
+                        employee = new Employee(oneEmployee);
 						break;
 					}
 				}
 
 
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());
-				panelAuthorization.Hide();      //Спрятать панель авторизаци
-					
-					//и создать меню
-				create_menu();
-			}
+				//panelAuthorization.Hide();      //Спрятать панель авторизаци
+
+                this.Hide();
+                ClientDepartmentForm form = new ClientDepartmentForm(this);
+                form.ShowDialog();
+                npgSqlConnection.Close();
+                
+
+                //и создать меню
+                //create_menu();
+            }
 			else
 			{
-				MessageBox.Show("Что-то пошло не так!");
+				MessageBox.Show(message);
 			}
 
 		}
-
 
 
 
@@ -88,7 +103,7 @@ namespace WindowsFormsApp1
 		{
 
 			//Инициализируем подпукнты меню
-			ToolStripMenuItem test1item = new ToolStripMenuItem("Test11", null, menuItemTest_Click);
+			ToolStripMenuItem test1item = new ToolStripMenuItem("Some text", null, menuItemTest_Click);
 			ToolStripMenuItem test2item = new ToolStripMenuItem("Test12");
 
 
@@ -97,20 +112,19 @@ namespace WindowsFormsApp1
 
 
 			//Заполняем эти массивы
-			if (AccessControl.CurentRole == 0)
+			if (AccessControl.CurrentRole == 0)
 				return;
 
-			if ((AccessControl.CurentRole & AccessControl.Role.customer_relations_officer) != 0)
+			if ((AccessControl.CurrentRole & AccessControl.Role.customer_relations_officer) != 0)
 				//Добавить пункы меню для сотрудника отдела по работе с клиентами
 				arrForTest1.Add(test1item);
-			if ((AccessControl.CurentRole & AccessControl.Role.chief_of_department) != 0)
+			if ((AccessControl.CurrentRole & AccessControl.Role.chief_of_department) != 0)
 				//Добавить пункы меню для руководителя отдела
 				arrForTest1.Add(test2item);
 
 			//и так далее
 			
-
-			mainMenuStrip.Items.Add(new ToolStripMenuItem("Test1", null, arrForTest1.ToArray()));
+			mainMenuStrip.Items.Add(new ToolStripMenuItem("My text", null, arrForTest1.ToArray()));
 		}
 
 

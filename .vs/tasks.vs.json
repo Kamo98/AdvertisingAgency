@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "задача-Form1.Designer",
+      "appliesTo": "WindowsFormsApp1/Form1.Designer.cs",
+      "type": "launch"
+    }
+  ]
+}

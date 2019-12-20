@@ -49,16 +49,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessControl.cs" />
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientDepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientDepartmentForm.Designer.cs">
+      <DependentUpon>ClientDepartmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaterialTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterialTypeForm.Designer.cs">
+      <DependentUpon>MaterialTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialTypeForm.resx">
+      <DependentUpon>MaterialTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
