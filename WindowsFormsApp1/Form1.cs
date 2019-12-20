@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
 		{
 
 			//Инициализируем подпукнты меню
-			ToolStripMenuItem test1item = new ToolStripMenuItem("Test11", null, menuItemTest_Click);
+			ToolStripMenuItem test1item = new ToolStripMenuItem("Some text", null, menuItemTest_Click);
 			ToolStripMenuItem test2item = new ToolStripMenuItem("Test12");
 
 
@@ -109,8 +109,7 @@ namespace WindowsFormsApp1
 
 			//и так далее
 			
-
-			mainMenuStrip.Items.Add(new ToolStripMenuItem("Test1", null, arrForTest1.ToArray()));
+			mainMenuStrip.Items.Add(new ToolStripMenuItem("My text", null, arrForTest1.ToArray()));
 		}
 
 
