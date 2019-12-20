@@ -68,6 +68,7 @@ namespace WindowsFormsApp1
                 this.Hide();
                 ClientDepartmentForm form = new ClientDepartmentForm(this);
                 form.ShowDialog();
+                npgSqlConnection.Close();
                 
 
                 //и создать меню
