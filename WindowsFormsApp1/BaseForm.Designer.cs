@@ -33,13 +33,17 @@
             this.типыМатериаловToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.типыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типыРекламныхПлощадокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.типыМатериаловToolStripMenuItem});
+            this.типыМатериаловToolStripMenuItem,
+            this.настройкиToolStripMenuItem,
+            this.выходToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -76,6 +80,19 @@
             this.типыРекламныхПлощадокToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.типыРекламныхПлощадокToolStripMenuItem.Text = "Типы рекламных площадок";
             // 
+            // настройкиToolStripMenuItem
+            // 
+            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem.Text = "Настройки";
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,5 +116,7 @@
         private System.Windows.Forms.ToolStripMenuItem типыМатериаловToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem типыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыРекламныхПлощадокToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
     }
 }

@@ -39,32 +39,36 @@ namespace WindowsFormsApp1
 			{
 
 				/*Получить из БД имя и должность сотрудника*/
-				string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
-				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
-				NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
-				if (npgSqlDataReader.HasRows)
-				{
-					foreach (DbDataRecord oneEmploye in npgSqlDataReader)
-					{
-						this.Text += "  | " + oneEmploye["FIO"] + "  |  " + oneEmploye["Position"];
-						break;
-					}
-				}
+				//string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
+				//NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
+				//NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
+				//if (npgSqlDataReader.HasRows)
+				//{
+				//	foreach (DbDataRecord oneEmploye in npgSqlDataReader)
+				//	{
+				//		this.Text += "  | " + oneEmploye["FIO"] + "  |  " + oneEmploye["Position"];
+				//		break;
+				//	}
+				//}
 
 
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());
-				panelAuthorization.Hide();      //Спрятать панель авторизаци
-					
-					//и создать меню
-				create_menu();
-			}
+				//panelAuthorization.Hide();      //Спрятать панель авторизаци
+
+                this.Hide();
+                ClientDepartmentForm form = new ClientDepartmentForm(this);
+                form.ShowDialog();
+                
+
+                //и создать меню
+                //create_menu();
+            }
 			else
 			{
 				MessageBox.Show(message);
 			}
 
 		}
-
 
 
 

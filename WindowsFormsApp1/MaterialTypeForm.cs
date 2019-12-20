@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    //Интерфейс для отдела клиентов
-    public partial class ClientDepartmentForm : BaseForm
+    public partial class MaterialTypeForm : Form
     {
-        public ClientDepartmentForm(Form parent) : base(parent)
+        public MaterialTypeForm()
         {
             InitializeComponent();
         }
+
     }
 }
