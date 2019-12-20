@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
 					}
 				}
 
-
+                npgSqlDataReader.Close();
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());
 				panelAuthorization.Hide();      //Спрятать панель авторизаци
 					

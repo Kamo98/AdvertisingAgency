@@ -45,22 +45,20 @@
             // firstNameInput
             // 
             this.firstNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameInput.Location = new System.Drawing.Point(36, 69);
+            this.firstNameInput.Location = new System.Drawing.Point(313, 69);
             this.firstNameInput.Name = "firstNameInput";
             this.firstNameInput.Size = new System.Drawing.Size(271, 30);
             this.firstNameInput.TabIndex = 0;
             this.firstNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.firstNameInput.KeyPress += UsefullFunctions.lettersOnly;
             // 
             // secondNameInput
             // 
             this.secondNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.secondNameInput.Location = new System.Drawing.Point(313, 69);
+            this.secondNameInput.Location = new System.Drawing.Point(36, 69);
             this.secondNameInput.Name = "secondNameInput";
             this.secondNameInput.Size = new System.Drawing.Size(271, 30);
             this.secondNameInput.TabIndex = 0;
             this.secondNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.secondNameInput.KeyPress += UsefullFunctions.lettersOnly;
             // 
             // pathronymicInput
             // 
@@ -70,24 +68,22 @@
             this.pathronymicInput.Size = new System.Drawing.Size(271, 30);
             this.pathronymicInput.TabIndex = 0;
             this.pathronymicInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pathronymicInput.KeyPress += UsefullFunctions.lettersOnly;
             // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameLabel.Location = new System.Drawing.Point(148, 41);
+            this.firstNameLabel.Location = new System.Drawing.Point(425, 41);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(54, 25);
             this.firstNameLabel.TabIndex = 1;
             this.firstNameLabel.Text = "Имя";
-
             // 
             // secondNameLabel
             // 
             this.secondNameLabel.AutoSize = true;
             this.secondNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.secondNameLabel.Location = new System.Drawing.Point(405, 41);
+            this.secondNameLabel.Location = new System.Drawing.Point(128, 41);
             this.secondNameLabel.Name = "secondNameLabel";
             this.secondNameLabel.Size = new System.Drawing.Size(103, 25);
             this.secondNameLabel.TabIndex = 1;
