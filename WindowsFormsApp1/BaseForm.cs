@@ -69,7 +69,8 @@ namespace WindowsFormsApp1
         private void текущийПрофильToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ФИО: " + parentForm.Employee.FIO + "\n" +
-                            "Должность: " + parentForm.Employee.Position);
+                            "Должность: " + parentForm.Employee.Position + "\n" +
+                            "Участник групп: " + AccessControl.get_name_cur_role());
         }
     }
 }

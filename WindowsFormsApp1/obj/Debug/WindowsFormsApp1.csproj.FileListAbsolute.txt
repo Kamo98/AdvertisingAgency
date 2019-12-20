@@ -40,3 +40,4 @@ C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\bin\Debug\zh-C
 C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BaseForm.resources
 C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialTypeForm.resources
+C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ClientDepartmentForm.resources

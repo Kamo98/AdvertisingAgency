@@ -22,7 +22,6 @@ namespace WindowsFormsApp1
 		public Form1()
 		{
 			InitializeComponent();
-
 			npgSqlConnection = null;
 		}
 
@@ -31,6 +30,11 @@ namespace WindowsFormsApp1
         {
             get => employee;
             set => employee = value;
+        }
+
+        public NpgsqlConnection Connection
+        {
+            get => npgSqlConnection;
         }
 
 
@@ -52,7 +56,6 @@ namespace WindowsFormsApp1
 				NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 				if (npgSqlDataReader.HasRows)
 				{
-                    //employee = new Employee((DbDataRecord)npgSqlDataReader[0]);
 					foreach (DbDataRecord oneEmployee in npgSqlDataReader)
 					{
                         //this.Text += "  | " + oneEmployee["FIO"] + "  |  " + oneEmployee["Position"];
@@ -60,6 +63,7 @@ namespace WindowsFormsApp1
 						break;
 					}
 				}
+                npgSqlDataReader.Close();
 
 
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());

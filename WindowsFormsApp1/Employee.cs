@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
     {
         String name;
         String position;
+        AccessControl.Role role;
 
         public String Position
         {
