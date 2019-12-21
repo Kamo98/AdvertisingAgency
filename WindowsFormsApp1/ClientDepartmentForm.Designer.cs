@@ -34,15 +34,16 @@
             this.buttonClientsUpdate = new System.Windows.Forms.Button();
             this.buttonClientsSave = new System.Windows.Forms.Button();
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
-            this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabOrderPage = new System.Windows.Forms.TabPage();
             this.buttonOrdersUpdate = new System.Windows.Forms.Button();
             this.buttonOrdersSave = new System.Windows.Forms.Button();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new WindowsFormsApp1.DataGridViewDateColumn();
             this.tabControl1.SuspendLayout();
             this.tabClientPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
@@ -99,32 +100,13 @@
             this.EmailColumn,
             this.AddressColumn,
             this.NameColumn,
-            this.NumberColumn});
+            this.NumberColumn,
+            this.Column1});
             this.dataGridViewClients.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.Size = new System.Drawing.Size(792, 344);
             this.dataGridViewClients.TabIndex = 0;
             this.dataGridViewClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClients_CellContentClick);
-            // 
-            // EmailColumn
-            // 
-            this.EmailColumn.HeaderText = "Почта";
-            this.EmailColumn.Name = "EmailColumn";
-            // 
-            // AddressColumn
-            // 
-            this.AddressColumn.HeaderText = "Адрес";
-            this.AddressColumn.Name = "AddressColumn";
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Ф.И.О";
-            this.NameColumn.Name = "NameColumn";
-            // 
-            // NumberColumn
-            // 
-            this.NumberColumn.HeaderText = "Телефон";
-            this.NumberColumn.Name = "NumberColumn";
             // 
             // tabOrderPage
             // 
@@ -171,6 +153,32 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // EmailColumn
+            // 
+            this.EmailColumn.HeaderText = "Почта";
+            this.EmailColumn.Name = "EmailColumn";
+            // 
+            // AddressColumn
+            // 
+            this.AddressColumn.HeaderText = "Адрес";
+            this.AddressColumn.Name = "AddressColumn";
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Ф.И.О";
+            this.NameColumn.Name = "NameColumn";
+            // 
+            // NumberColumn
+            // 
+            this.NumberColumn.HeaderText = "Телефон";
+            this.NumberColumn.Name = "NumberColumn";
+            this.NumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
             // ClientDepartmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,10 +209,11 @@
         private System.Windows.Forms.Button buttonClientsSave;
         private System.Windows.Forms.Button buttonOrdersUpdate;
         private System.Windows.Forms.Button buttonOrdersSave;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberColumn;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private DataGridViewDateColumn Column1;
     }
 }

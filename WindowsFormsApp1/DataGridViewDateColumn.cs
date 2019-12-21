@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,16 +8,22 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public sealed class DataGridViewDateColumn : DataGridViewColumn
+    public class DataGridViewDateColumn : DataGridViewColumn
     {
         public DataGridViewDateColumn()
         {
             base.CellTemplate = new DataGridViewDateCell();
         }
+
     }
 
     public class DataGridViewDateCell : DataGridViewCell
     {
+        public DataGridViewDateCell() : base()
+        {
+            Value = DateTime.Today;
+        }
+
         public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
@@ -74,6 +81,8 @@ namespace WindowsFormsApp1
         public void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)
         {
             this.Font = dataGridViewCellStyle.Font;
+            this.CalendarForeColor = dataGridViewCellStyle.ForeColor;
+            this.CalendarMonthBackground = dataGridViewCellStyle.BackColor;
         }
 
         public bool EditingControlWantsInputKey(Keys keyData, bool dataGridViewWantsInputKey)
