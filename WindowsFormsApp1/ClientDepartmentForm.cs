@@ -48,7 +48,9 @@ namespace WindowsFormsApp1
 
         }
 
+        private void dataGridViewClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
     }
 }

@@ -96,6 +96,7 @@ namespace WindowsFormsApp1
                     grid.Rows.Add(objects);
                 }
             }
+            npgSqlDataReader.Close();
         }
 
 
