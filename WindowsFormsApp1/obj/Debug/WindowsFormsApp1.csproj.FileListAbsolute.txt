@@ -41,3 +41,6 @@ C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\Wind
 C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BaseForm.resources
 C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialTypeForm.resources
 C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ClientDepartmentForm.resources
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BaseForm.resources
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ClientDepartmentForm.resources
+H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialTypeForm.resources
