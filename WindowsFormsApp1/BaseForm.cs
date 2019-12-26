@@ -72,5 +72,11 @@ namespace WindowsFormsApp1
                             "Должность: " + parentForm.Employee.Position + "\n" +
                             "Участник групп: " + AccessControl.get_name_cur_role());
         }
-    }
+
+		private void типыМатериаловToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			MaterialTypeForm form = new MaterialTypeForm(parentForm.Connection);
+			form.ShowDialog();
+		}
+	}
 }
