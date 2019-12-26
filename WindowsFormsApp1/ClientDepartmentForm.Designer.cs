@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabClientPage = new System.Windows.Forms.TabPage();
             this.buttonClientsUpdate = new System.Windows.Forms.Button();
             this.buttonClientsSave = new System.Windows.Forms.Button();
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
+            this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneColumn = new WindowsFormsApp1.DataGridViewNumberColumn();
+            this.Column1 = new WindowsFormsApp1.DataGridViewDateColumn();
             this.tabOrderPage = new System.Windows.Forms.TabPage();
             this.buttonOrdersUpdate = new System.Windows.Forms.Button();
             this.buttonOrdersSave = new System.Windows.Forms.Button();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new WindowsFormsApp1.DataGridViewDateColumn();
             this.tabControl1.SuspendLayout();
             this.tabClientPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
@@ -91,6 +93,7 @@
             this.buttonClientsSave.TabIndex = 1;
             this.buttonClientsSave.Text = "Сохранить";
             this.buttonClientsSave.UseVisualStyleBackColor = true;
+            this.buttonClientsSave.Click += new System.EventHandler(this.buttonClientsSave_Click);
             // 
             // dataGridViewClients
             // 
@@ -100,13 +103,46 @@
             this.EmailColumn,
             this.AddressColumn,
             this.NameColumn,
-            this.NumberColumn,
+            this.PhoneColumn,
             this.Column1});
             this.dataGridViewClients.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.Size = new System.Drawing.Size(792, 344);
             this.dataGridViewClients.TabIndex = 0;
             this.dataGridViewClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClients_CellContentClick);
+            // 
+            // EmailColumn
+            // 
+            this.EmailColumn.HeaderText = "Почта";
+            this.EmailColumn.Name = "EmailColumn";
+            // 
+            // AddressColumn
+            // 
+            this.AddressColumn.HeaderText = "Адрес";
+            this.AddressColumn.Name = "AddressColumn";
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Ф.И.О";
+            this.NameColumn.Name = "NameColumn";
+            // 
+            // PhoneColumn
+            // 
+            dataGridViewCellStyle1.Format = "d";
+            this.PhoneColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PhoneColumn.HeaderText = "Телефон";
+            this.PhoneColumn.Name = "PhoneColumn";
+            this.PhoneColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PhoneColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
             // 
             // tabOrderPage
             // 
@@ -153,32 +189,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // EmailColumn
-            // 
-            this.EmailColumn.HeaderText = "Почта";
-            this.EmailColumn.Name = "EmailColumn";
-            // 
-            // AddressColumn
-            // 
-            this.AddressColumn.HeaderText = "Адрес";
-            this.AddressColumn.Name = "AddressColumn";
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Ф.И.О";
-            this.NameColumn.Name = "NameColumn";
-            // 
-            // NumberColumn
-            // 
-            this.NumberColumn.HeaderText = "Телефон";
-            this.NumberColumn.Name = "NumberColumn";
-            this.NumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            // 
             // ClientDepartmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,7 +223,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberColumn;
+        private DataGridViewNumberColumn PhoneColumn;
         private DataGridViewDateColumn Column1;
     }
 }

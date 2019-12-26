@@ -10,26 +10,60 @@ namespace WindowsFormsApp1
 {
     public class DataGridViewDateColumn : DataGridViewColumn
     {
-        public DataGridViewDateColumn()
+        public DataGridViewDateColumn():base(new DataGridViewDateCell())
         {
-            base.CellTemplate = new DataGridViewDateCell();
         }
 
+        public override DataGridViewCell CellTemplate
+        {
+            get
+            {
+                return base.CellTemplate;
+            }
+            set
+            {
+                // Ensure that the cell used for the template is a DataGridViewDateCell.
+                if (value != null &&
+                    !value.GetType().IsAssignableFrom(typeof(DataGridViewDateCell)))
+                {
+                    throw new InvalidCastException("Must be a CalendarCell");
+                }
+                base.CellTemplate = value;
+            }
+        }
     }
 
-    public class DataGridViewDateCell : DataGridViewCell
+    public class DataGridViewDateCell : DataGridViewTextBoxCell
     {
         public DataGridViewDateCell() : base()
         {
-            Value = DateTime.Today;
+            this.Style.Format = "d";
+            //Value = DateTime.Today;
+
         }
 
+        CalendarEditingControl ctl;
         public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
-            CalendarEditingControl ctl = (CalendarEditingControl)DataGridView.EditingControl;
-            ctl.Value = (DateTime)this.Value;
+            ctl = DataGridView.EditingControl as CalendarEditingControl;
+            if (this.Value == null)
+               ctl.Value = (DateTime)this.DefaultNewRowValue;        
+            else
+               ctl.Value = (DateTime)this.Value;
+            
         }
+
+        public override void DetachEditingControl()
+        {
+            base.DetachEditingControl();
+            this.Value = ctl.Value;
+        }
+
+        // Return the type of the editing control that CalendarCell uses.
+        public override Type EditType => typeof(CalendarEditingControl);
+
+        public override Type ValueType => typeof(DateTime);
 
         public override object DefaultNewRowValue => DateTime.Today;
 
@@ -42,8 +76,13 @@ namespace WindowsFormsApp1
         {
             get => grid;
             set => grid = value;
+        }    
+
+        public CalendarEditingControl()
+        {
+            this.Format = DateTimePickerFormat.Short;
         }
-        
+
         public object EditingControlFormattedValue
         {
             get => this.Value.ToShortDateString();
@@ -90,6 +129,13 @@ namespace WindowsFormsApp1
             switch (keyData & Keys.KeyCode)
             {
                 case Keys.Left:
+                case Keys.Up:
+                case Keys.Down:
+                case Keys.Right:
+                case Keys.Home:
+                case Keys.End:
+                case Keys.PageDown:
+                case Keys.PageUp:
                     return true;
                 default:
                     return false;

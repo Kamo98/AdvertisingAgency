@@ -48,8 +48,7 @@ namespace WindowsFormsApp1
 			string message = AccessControl.log_in(login, pass, out npgSqlConnection);
 
 			if (npgSqlConnection != null)
-			{
-                
+			{           
 				/*Получить из БД имя и должность сотрудника*/
 				string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
 				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, npgSqlConnection);
@@ -73,8 +72,6 @@ namespace WindowsFormsApp1
                 ClientDepartmentForm form = new ClientDepartmentForm(this);
                 form.ShowDialog();
                 npgSqlConnection.Close();
-                
-
                 //и создать меню
                 //create_menu();
             }
