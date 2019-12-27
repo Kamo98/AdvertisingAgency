@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabClientPage = new System.Windows.Forms.TabPage();
+            this.buttonAddClient = new System.Windows.Forms.Button();
             this.buttonClientsUpdate = new System.Windows.Forms.Button();
             this.buttonClientsSave = new System.Windows.Forms.Button();
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
@@ -42,6 +43,7 @@
             this.PhoneColumn = new WindowsFormsApp1.DataGridViewNumberColumn();
             this.Column1 = new WindowsFormsApp1.DataGridViewDateColumn();
             this.tabOrderPage = new System.Windows.Forms.TabPage();
+            this.buttonAddOrder = new System.Windows.Forms.Button();
             this.buttonOrdersUpdate = new System.Windows.Forms.Button();
             this.buttonOrdersSave = new System.Windows.Forms.Button();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
@@ -66,6 +68,7 @@
             // tabClientPage
             // 
             this.tabClientPage.BackColor = System.Drawing.Color.LightGray;
+            this.tabClientPage.Controls.Add(this.buttonAddClient);
             this.tabClientPage.Controls.Add(this.buttonClientsUpdate);
             this.tabClientPage.Controls.Add(this.buttonClientsSave);
             this.tabClientPage.Controls.Add(this.dataGridViewClients);
@@ -75,6 +78,16 @@
             this.tabClientPage.Size = new System.Drawing.Size(792, 392);
             this.tabClientPage.TabIndex = 0;
             this.tabClientPage.Text = "Клиенты";
+            // 
+            // buttonAddClient
+            // 
+            this.buttonAddClient.Location = new System.Drawing.Point(547, 350);
+            this.buttonAddClient.Name = "buttonAddClient";
+            this.buttonAddClient.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddClient.TabIndex = 3;
+            this.buttonAddClient.Text = "Добавить";
+            this.buttonAddClient.UseVisualStyleBackColor = true;
+            this.buttonAddClient.Click += new System.EventHandler(this.buttonAddClient_Click);
             // 
             // buttonClientsUpdate
             // 
@@ -147,6 +160,7 @@
             // tabOrderPage
             // 
             this.tabOrderPage.BackColor = System.Drawing.Color.LightGray;
+            this.tabOrderPage.Controls.Add(this.buttonAddOrder);
             this.tabOrderPage.Controls.Add(this.buttonOrdersUpdate);
             this.tabOrderPage.Controls.Add(this.buttonOrdersSave);
             this.tabOrderPage.Controls.Add(this.dataGridViewOrders);
@@ -156,6 +170,16 @@
             this.tabOrderPage.Size = new System.Drawing.Size(792, 392);
             this.tabOrderPage.TabIndex = 1;
             this.tabOrderPage.Text = "Заказы";
+            // 
+            // buttonAddOrder
+            // 
+            this.buttonAddOrder.Location = new System.Drawing.Point(547, 350);
+            this.buttonAddOrder.Name = "buttonAddOrder";
+            this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddOrder.TabIndex = 5;
+            this.buttonAddOrder.Text = "Добавить";
+            this.buttonAddOrder.UseVisualStyleBackColor = true;
+            this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
             // 
             // buttonOrdersUpdate
             // 
@@ -174,6 +198,7 @@
             this.buttonOrdersSave.TabIndex = 3;
             this.buttonOrdersSave.Text = "Сохранить";
             this.buttonOrdersSave.UseVisualStyleBackColor = true;
+            this.buttonOrdersSave.Click += new System.EventHandler(this.buttonOrdersSave_Click);
             // 
             // dataGridViewOrders
             // 
@@ -225,5 +250,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private DataGridViewNumberColumn PhoneColumn;
         private DataGridViewDateColumn Column1;
+        private System.Windows.Forms.Button buttonAddClient;
+        private System.Windows.Forms.Button buttonAddOrder;
     }
 }
