@@ -23,7 +23,7 @@
 		#region Код, автоматически созданный конструктором форм Windows
 
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
+		/// Требуемый метод для поддержки конструктора — не изменяйте
 		/// содержимое этого метода с помощью редактора кода.
 		/// </summary>
 		private void InitializeComponent()
@@ -38,17 +38,17 @@
             this.panelAuthorization = new System.Windows.Forms.Panel();
             this.panelAuthorization.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // mainMenuStrip
-            // 
+            //
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(931, 24);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
-            // 
+            //
             // btnSignIn
-            // 
+            //
             this.btnSignIn.Location = new System.Drawing.Point(168, 179);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(138, 26);
@@ -56,52 +56,52 @@
             this.btnSignIn.Text = "Авторизоваться";
             this.btnSignIn.UseVisualStyleBackColor = true;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
-            // 
+            //
             // textBoxLogin
-            // 
+            //
             this.textBoxLogin.Location = new System.Drawing.Point(132, 57);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(264, 20);
             this.textBoxLogin.TabIndex = 2;
             this.textBoxLogin.Text = "Kamo98";
-            // 
+            //
             // textBoxPass
-            // 
+            //
             this.textBoxPass.Location = new System.Drawing.Point(132, 114);
             this.textBoxPass.Name = "textBoxPass";
             this.textBoxPass.PasswordChar = '*';
             this.textBoxPass.Size = new System.Drawing.Size(264, 20);
             this.textBoxPass.TabIndex = 3;
             this.textBoxPass.Text = "Ntcnbhjdfybt_01";
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(64, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Логин";
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(64, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Пароль";
-            // 
+            //
             // labelTest
-            // 
+            //
             this.labelTest.AutoSize = true;
             this.labelTest.Location = new System.Drawing.Point(966, 91);
             this.labelTest.Name = "labelTest";
             this.labelTest.Size = new System.Drawing.Size(0, 13);
             this.labelTest.TabIndex = 6;
-            // 
+            //
             // panelAuthorization
-            // 
+            //
             this.panelAuthorization.Controls.Add(this.label1);
             this.panelAuthorization.Controls.Add(this.btnSignIn);
             this.panelAuthorization.Controls.Add(this.label2);
@@ -111,9 +111,9 @@
             this.panelAuthorization.Name = "panelAuthorization";
             this.panelAuthorization.Size = new System.Drawing.Size(453, 264);
             this.panelAuthorization.TabIndex = 7;
-            // 
+            //
             // Form1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 427);
@@ -143,4 +143,3 @@
 		private System.Windows.Forms.Panel panelAuthorization;
 	}
 }
-

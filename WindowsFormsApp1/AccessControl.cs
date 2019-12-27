@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
 			team_leader = 4,
 			customer_relations_officer = 8,
 			creative_officer = 16,
-			production_officer = 32, 
+			production_officer = 32,
 			media_officer = 64,
 			administrative_officer = 128
 		}
@@ -91,13 +91,15 @@ namespace WindowsFormsApp1
 		 * Здесь устанавливается соединение с БД
 		 * и определяются роли пользователя
 		 * */
-		public static String log_in(string login, string pass, out NpgsqlConnection npgSqlConnection)
+		public static bool log_in(string login, string pass)
 		{
 			string connectionString = "Server=database-2.cx7kyl76gv42.us-east-2.rds.amazonaws.com;Port=5432;User="
 							+ login + ";Password=" + pass + ";Database=Database2;";
 
-			//Создание соединения с БД
-			npgSqlConnection = new NpgsqlConnection(connectionString);
+            //Создание соединения с БД
+
+            ConnectionSettings.npgSqlConnection = new NpgsqlConnection(connectionString);
+            ConnectionSettings.npgSqlConnection.Open();
 
             //Обработка исключения при создания исключения, тут выведется сообщение о неверном логине или пароле
             try
@@ -109,11 +111,11 @@ namespace WindowsFormsApp1
                 npgSqlConnection = null;
                 return "Неверный пользователь или пароль!";
             }
-			
+
 
 			//Создаём и выполняем запрос на членство пользователя в ролях
-			String qyery_roles = "select \"role_name\" from \"information_schema\".\"applicable_roles\" where \"grantee\" = '" + login + "';";
-			NpgsqlCommand npgSqlCommand = new NpgsqlCommand(qyery_roles, npgSqlConnection);
+			String query_roles = "select \"role_name\" from \"information_schema\".\"applicable_roles\" where \"grantee\" = '" + login + "';";
+			NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query_roles, ConnectionSettings.npgSqlConnection);
 			NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 
 			if (npgSqlDataReader.HasRows)
@@ -128,7 +130,7 @@ namespace WindowsFormsApp1
                 npgSqlConnection = null;
 				return "Данный пользователь не имеет прав для входа в систему";  //У пользователя вообще нет ролей
             }
-                
+
 			//Если currentRole = 0, то у пользователя нет интересующих нас ролей
 			//return currentRole != 0;
 			return "Всё ок";

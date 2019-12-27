@@ -49,21 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessControl.cs" />
-    <Compile Include="BaseForm.cs">
+    <Compile Include="ButtonBuilder.cs" />
+    <Compile Include="ConnectionSettings.cs" />
+    <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientDepartmentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientDepartmentForm.Designer.cs">
-      <DependentUpon>ClientDepartmentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataGridViewDateColumn.cs" />
-    <Compile Include="DataGridViewWrapper.cs" />
-    <Compile Include="Employee.cs" />
+    <Compile Include="Entity\Department.cs" />
+    <Compile Include="Entity\Employee.cs" />
+    <Compile Include="Entity\Interfaces\IEntity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,11 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BaseForm.resx">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ClientDepartmentForm.resx">
-      <DependentUpon>ClientDepartmentForm.cs</DependentUpon>
+    <Compile Include="UsefullFunctions.cs" />
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
