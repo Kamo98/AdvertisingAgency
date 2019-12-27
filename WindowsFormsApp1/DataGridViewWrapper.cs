@@ -245,8 +245,8 @@ namespace WindowsFormsApp1
             bool hasForInsert = false;
             foreach (ColumnDataGridViewWrapper col in fields)
             {
-                object value = row.Cells[ind++].Value;
-                if (col.Type == FieldType.Id ||value  == null) continue;
+                object value = row.Cells[ind].Value;
+                if (col.Type == FieldType.Id || value == null) { ind++; continue; }
                 hasForInsert = true;
                 values += atp(col.Type == FieldType.List? ComboBoxesInverted[ind][value.ToString()].ToString() : value.ToString()) + ",";
                 columns += col.FieldName + ",";
@@ -262,7 +262,7 @@ namespace WindowsFormsApp1
 
         void OnInsert(object sender, DataGridViewRowsAddedEventArgs args)
         {
-            if (updateQueries == null) return;
+            if (insertQueries == null) return;
             for (int i = 0; i < args.RowCount; i++)
             {
                 insertQueries.Add(--insertedSeq, makeInsertQuery(grid.Rows[args.RowIndex + i]));
@@ -330,7 +330,7 @@ namespace WindowsFormsApp1
             deleteQueries = new Dictionary<int, String>();
             npgSqlDataReader.Close();
         }
-
+        
         //Коммит, все запросы отправляются в бд
         public void Commit()
         {
@@ -356,5 +356,8 @@ namespace WindowsFormsApp1
 
         //Возвращает true, если у таблицы есть колонка с id
         public bool HasIdColumn => IdColumn != -1;
+
+        //Возвращает словарь комбобокса для указанного столбца
+        public Dictionary<String, int> getComboBox(int ind) => fields[ind].Type == FieldType.List ? ComboBoxesInverted[ind] : null;
     }
 }

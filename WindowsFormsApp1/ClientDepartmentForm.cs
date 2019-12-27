@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
                                                              new ColumnDataGridViewWrapper("Цена", qts("Cost"),FieldType.Integer),
                                                              new ColumnDataGridViewWrapper("Договор",qts("ContractLink"),FieldType.Text),
                                                              new ColumnDataGridViewWrapper("Клиент",qts("ID_Client"),FieldType.List,"select \"ID_Client\",\"FIO\" from  \"Client\"")};
-        static ColumnDataGridViewWrapper[] ProjectsFields = {   new ColumnDataGridViewWrapper("ID_Project",qts("ID_Order"),FieldType.Id),
+        static ColumnDataGridViewWrapper[] ProjectsFields = {   new ColumnDataGridViewWrapper("ID_Project",qts("ID_Project"),FieldType.Id),
                                                                 new ColumnDataGridViewWrapper("Дата создания" ,qts("DateOfCreation"),FieldType.Date),
                                                                 new ColumnDataGridViewWrapper("Концепт",qts("Concept"),FieldType.Text),
                                                                 new ColumnDataGridViewWrapper("Дата окончания", qts("ExpirationDate"),FieldType.Date),
@@ -69,8 +69,8 @@ namespace WindowsFormsApp1
 
         private void buttonClientsSave_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(dataGridView1.Rows[0].Cells[0].Value.ToString());
             gridWrapperClients.Commit();
+            MessageBox.Show("Таблица сохранена", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonAddOrder_Click(object sender, EventArgs e)
@@ -86,12 +86,39 @@ namespace WindowsFormsApp1
         private void buttonOrdersSave_Click(object sender, EventArgs e)
         {
             gridWrapperOrders.Commit();
+            MessageBox.Show("Таблица сохранена", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonClientsUpdate_Click(object sender, EventArgs e)
         {
             gridWrapperClients.UpdateTable();
             MessageBox.Show("Таблица обновлена","Сообщение",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void buttonOrdersUpdate_Click(object sender, EventArgs e)
+        {
+            gridWrapperOrders.UpdateTable();
+            MessageBox.Show("Таблица обновлена", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonProjectUpdate_Click(object sender, EventArgs e)
+        {
+            gridWrapperProjects.UpdateTable();
+            MessageBox.Show("Таблица обновлена", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonProjectSave_Click(object sender, EventArgs e)
+        {
+            gridWrapperProjects.Commit();
+            MessageBox.Show("Таблица сохранена", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonProjectAdd_Click(object sender, EventArgs e)
+        {
+            AddProjectForm form = new AddProjectForm(gridWrapperProjects.getComboBox(6));
+            form.ShowDialog();
+            if (form.AddRow) 
+                dataGridViewProjects.Rows.Add(form.RowToInsert);
         }
     }
 }

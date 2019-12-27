@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabClientPage = new System.Windows.Forms.TabPage();
             this.buttonAddClient = new System.Windows.Forms.Button();
@@ -150,8 +150,8 @@
             // 
             // PhoneColumn
             // 
-            dataGridViewCellStyle1.Format = "d";
-            this.PhoneColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Format = "d";
+            this.PhoneColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.PhoneColumn.HeaderText = "Телефон";
             this.PhoneColumn.Name = "PhoneColumn";
             this.PhoneColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -159,10 +159,10 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.Format = "d";
+            dataGridViewCellStyle12.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
             // 
@@ -198,6 +198,7 @@
             this.buttonOrdersUpdate.TabIndex = 4;
             this.buttonOrdersUpdate.Text = "Обновить";
             this.buttonOrdersUpdate.UseVisualStyleBackColor = true;
+            this.buttonOrdersUpdate.Click += new System.EventHandler(this.buttonOrdersUpdate_Click);
             // 
             // buttonOrdersSave
             // 
@@ -240,6 +241,7 @@
             this.buttonProjectAdd.TabIndex = 3;
             this.buttonProjectAdd.Text = "Добавить";
             this.buttonProjectAdd.UseVisualStyleBackColor = true;
+            this.buttonProjectAdd.Click += new System.EventHandler(this.buttonProjectAdd_Click);
             // 
             // buttonProjectUpdate
             // 
@@ -249,6 +251,7 @@
             this.buttonProjectUpdate.TabIndex = 2;
             this.buttonProjectUpdate.Text = "Обновить";
             this.buttonProjectUpdate.UseVisualStyleBackColor = true;
+            this.buttonProjectUpdate.Click += new System.EventHandler(this.buttonProjectUpdate_Click);
             // 
             // buttonProjectSave
             // 
@@ -258,6 +261,7 @@
             this.buttonProjectSave.TabIndex = 1;
             this.buttonProjectSave.Text = "Сохранить";
             this.buttonProjectSave.UseVisualStyleBackColor = true;
+            this.buttonProjectSave.Click += new System.EventHandler(this.buttonProjectSave_Click);
             // 
             // dataGridViewProjects
             // 
