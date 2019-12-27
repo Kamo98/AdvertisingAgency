@@ -17,11 +17,11 @@ namespace WindowsFormsApp1
     class UsefullFunctions
     {
         /*
-         * Хэндлер для TextBox'ов пропускает ввод только букв (пробел НЕ пропускает)
+         * Хэндлер для TextBox'ов пропускает ввод только букв и пробела
          */
         public static KeyPressEventHandler lettersOnly = new KeyPressEventHandler(LettersOnly);
         private static void LettersOnly(object sender, KeyPressEventArgs e) {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
                 e.Handled = true;
         }
 
@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
         public static KeyPressEventHandler noSpaces = new KeyPressEventHandler(NoSpaces);
         private static void NoSpaces(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 32)
+            if (e.KeyChar == ' ')
                 e.Handled = true;
         }
 
@@ -58,5 +58,28 @@ namespace WindowsFormsApp1
             }
         }
 
+        /*
+         * Хэндлер для текстовых полей - не позволяет вводить более одного пробелов подряд
+         * */
+        public static KeyPressEventHandler SpaceController = new KeyPressEventHandler(SpaceControl);
+        private static void SpaceControl(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb.Text == "" && e.KeyChar == ' ')
+                e.Handled = true;
+            else if (tb.Text.Length > 0 && tb.Text.Last() == ' ' && e.KeyChar == ' ')
+                e.Handled = true;
+        }
+
+        /*
+         * Хэндлер для текстовых полей - стирает символ, если это пробел
+         * */
+        public static EventHandler DelLastSpace = new EventHandler(DeleteLastIfSpace);
+        private static void DeleteLastIfSpace(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb.Text.Length > 0 && tb.Text.Last() == ' ')
+                tb.Text = tb.Text.Remove(tb.Text.Length - 1);
+        }
     }
 }

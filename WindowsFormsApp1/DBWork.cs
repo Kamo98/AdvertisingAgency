@@ -71,5 +71,23 @@ namespace WindowsFormsApp1
             //reader.Close();
             return emp;
         }
+
+        /*
+         * Сменить пароль пользователя
+         * */
+        public static void ChangeUserPassword(string username, string newPass) {
+            queue = "Alter USER \"" + username + "\" WITH PASSWORD \'" + newPass + "\';";
+            new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection).ExecuteNonQuery();
+        }
+
+        public static void Grant(string role, string username) {
+            queue = "Grant \"" + role + "\" To \"" + username + "\"";
+            new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection).ExecuteNonQuery();
+        }
+        public static void Revoke(string role, string username)
+        {
+            queue = "Revoke \"" + role + "\" From \"" + username + "\"";
+            new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection).ExecuteNonQuery();
+        }
     }
 }

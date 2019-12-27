@@ -21,25 +21,23 @@ namespace WindowsFormsApp1
          */
         private void AdditionalInit()
         {
-            firstNameInput.KeyPress     += UsefullFunctions.lettersOnly;
-            lastNameInput.KeyPress    += UsefullFunctions.lettersOnly;
-            pathronymicInput.KeyPress   += UsefullFunctions.lettersOnly;
+            FIOInput.KeyPress           += UsefullFunctions.lettersOnly;
+            FIOInput.KeyPress           += UsefullFunctions.SpaceController;
             LoginBox.KeyPress           += UsefullFunctions.noSpaces;
+            LoginBox.KeyPress           += UsefullFunctions.SpaceController;
 
-            firstNameInput.Enter        += UsefullFunctions.OnSetFocus;
-            lastNameInput.Enter       += UsefullFunctions.OnSetFocus;
-            pathronymicInput.Enter      += UsefullFunctions.OnSetFocus;
+            FIOInput.Enter              += UsefullFunctions.OnSetFocus;
             positionInput.Enter         += UsefullFunctions.OnSetFocus;
             departmentComboBox.Enter    += UsefullFunctions.OnSetFocus;
             LoginBox.Enter              += UsefullFunctions.OnSetFocus;
             PassBox.Enter               += UsefullFunctions.OnSetFocus;
 
-            firstNameInput.Leave        += UsefullFunctions.OnDropFocus;
-            lastNameInput.Leave       += UsefullFunctions.OnDropFocus;
-            pathronymicInput.Leave      += UsefullFunctions.OnDropFocus;
+            FIOInput.Leave              += UsefullFunctions.OnDropFocus;
+            FIOInput.Leave              += UsefullFunctions.DelLastSpace;
             positionInput.Leave         += UsefullFunctions.OnDropFocus;
             departmentComboBox.Leave    += UsefullFunctions.OnDropFocus;
             LoginBox.Leave              += UsefullFunctions.OnDropFocus;
+            LoginBox.Leave              += UsefullFunctions.DelLastSpace;
             PassBox.Leave               += UsefullFunctions.OnDropFocus;
 
         }
@@ -51,19 +49,28 @@ namespace WindowsFormsApp1
             SetDepartmentResource();
             currentEmployee = null;
 
-            RoleLabel.Hide();
-            rolePanel.Hide();
+            RoleLabel.Visible = false;
+            rolePanel.Visible = false;
+
+            this.Height = 500;
+            BlockedFlag.Visible = false;
         }
         
+        /*
+         * Конструктор формы для редактирования
+         */
         public EmployeeForm(int emp_id) : this() {
             if (emp_id > 0) {
-                rolePanel.Show();
-                RoleLabel.Show();
+                rolePanel.Visible = RoleLabel.Visible = BlockedFlag.Visible = true;
+                Height = 620;
             }
             currentEmployee = DBWork.GetEmployee(emp_id);
 
+            /*
+             * Считываем роли и устанавливаем соответствующие флаги
+             * */
             if ((currentEmployee.Role & AccessControl.Role.administrative_officer) != 0) {
-                administratieOfficerCheck.CheckState = CheckState.Checked;
+                administrativeOfficerCheck.CheckState = CheckState.Checked;
             }
             if ((currentEmployee.Role & AccessControl.Role.chief_of_agency) != 0)
             {
@@ -90,17 +97,10 @@ namespace WindowsFormsApp1
                 customerRelationsOfficerCheck.CheckState = CheckState.Checked;
             }
 
-            string[] fio_p = currentEmployee.FIO.Split();
-            firstNameInput.Text = fio_p[1];
-            lastNameInput.Text = fio_p[0];
-            if (fio_p.Length >= 3)
-            {
-                pathronymicInput.Text = "";
-                int i;
-                for (i = 2; i < fio_p.Length - 1; i++)
-                    pathronymicInput.Text += fio_p[i] + " ";
-                pathronymicInput.Text += fio_p[i];
-            }
+            /*
+             * Устанавливаем остальные данные
+             * */
+            FIOInput.Text = currentEmployee.FIO;
             positionInput.Text = currentEmployee.Position;
             departmentComboBox.SelectedValue = currentEmployee.ID_Dep;
             if (currentEmployee.Username != null) {
@@ -110,12 +110,16 @@ namespace WindowsFormsApp1
                 BlockedFlag.CheckState = CheckState.Unchecked;
             else
                 BlockedFlag.CheckState = CheckState.Checked;
+
+            /*
+             * Заблокируемвозможность смены логина
+             * */
+            LoginBox.Enabled = false;
         }
 
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(BlockedFlag.Checked.ToString());
             Close();
         }
 
@@ -171,7 +175,7 @@ namespace WindowsFormsApp1
                 {
                     login = null;
                 }
-                currentEmployee = new Employee(0, lastNameInput.Text + " " + firstNameInput.Text + " " + pathronymicInput.Text,
+                currentEmployee = new Employee(0, FIOInput.Text,
                     positionInput.Text, (int)departmentComboBox.SelectedValue, true, login);
                 try
                 {
@@ -181,25 +185,41 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                Clear();
+                MessageBox.Show("Сотрудник зарегистрировани", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             /*
              *Редактирование данных о сотруднике
              */
             else {
-                if (chiefAgencyCheck.Checked)
+                if (chiefAgencyCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.chief_of_agency;
-                if (chiefDepartmentCheck.Checked)
+                if (chiefDepartmentCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.chief_of_department;
-                if (administratieOfficerCheck.Checked)
+                if (administrativeOfficerCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.administrative_officer;
-                if (creativeOfficerCheck.Checked)
+                if (creativeOfficerCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.creative_officer;
-                if (customerRelationsOfficerCheck.Checked)
+                if (customerRelationsOfficerCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.customer_relations_officer;
-                if (mediaOfficerCheck.Checked)
+                if (mediaOfficerCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.media_officer;
-                if (productionOfficerCheck.Checked)
+                if (productionOfficerCheck.CheckState == CheckState.Checked)
                     role |= AccessControl.Role.production_officer;
+
+                currentEmployee.FIO = FIOInput.Text;
+                currentEmployee.Position = positionInput.Text;
+                currentEmployee.ID_Dep = (int)departmentComboBox.SelectedValue;
+                currentEmployee.Role = role;
+                if (LoginBox.Text == "") {
+                    currentEmployee.Username = null;
+                }
+                if (PassBox.Text != "") {
+                    DBWork.ChangeUserPassword(currentEmployee.Username, PassBox.Text);
+                }
+                currentEmployee.Save();
+                MessageBox.Show("Изменения внесены", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
 
             
@@ -224,17 +244,19 @@ namespace WindowsFormsApp1
         private bool Validate()
         {
             bool valid = true;
-
-            if (firstNameInput.Text == string.Empty) {
-                valid = false;
-                firstNameInput.BackColor = Color.LightCoral;
-            }
-            if (lastNameInput.Text == string.Empty)
+            if (FIOInput.Text == string.Empty)
             {
                 valid = false;
-                lastNameInput.BackColor = Color.LightCoral;
+                FIOInput.BackColor = Color.LightCoral;
             }
             return valid;
+        }
+
+        private void Clear() {
+            FIOInput.Clear();
+            positionInput.Clear();
+            LoginBox.Clear();
+            PassBox.Clear();
         }
 
     }

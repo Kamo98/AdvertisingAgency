@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.firstNameInput = new System.Windows.Forms.TextBox();
-            this.lastNameInput = new System.Windows.Forms.TextBox();
-            this.pathronymicInput = new System.Windows.Forms.TextBox();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.secondNameLabel = new System.Windows.Forms.Label();
-            this.pathronymicLabel = new System.Windows.Forms.Label();
+            this.FIOInput = new System.Windows.Forms.TextBox();
+            this.FIOLabel = new System.Windows.Forms.Label();
             this.positionLabel = new System.Windows.Forms.Label();
             this.positionInput = new System.Windows.Forms.TextBox();
             this.departmentComboBox = new System.Windows.Forms.ComboBox();
@@ -51,69 +47,31 @@
             this.productionOfficerCheck = new System.Windows.Forms.CheckBox();
             this.mediaOfficerCheck = new System.Windows.Forms.CheckBox();
             this.customerRelationsOfficerCheck = new System.Windows.Forms.CheckBox();
-            this.administratieOfficerCheck = new System.Windows.Forms.CheckBox();
+            this.administrativeOfficerCheck = new System.Windows.Forms.CheckBox();
             this.rolePanel = new System.Windows.Forms.Panel();
             this.BlockedFlag = new System.Windows.Forms.CheckBox();
             this.rolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // firstNameInput
+            // FIOInput
             // 
-            this.firstNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameInput.Location = new System.Drawing.Point(313, 69);
-            this.firstNameInput.Name = "firstNameInput";
-            this.firstNameInput.Size = new System.Drawing.Size(271, 30);
-            this.firstNameInput.TabIndex = 1;
-            this.firstNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FIOInput.BackColor = System.Drawing.SystemColors.Window;
+            this.FIOInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FIOInput.Location = new System.Drawing.Point(36, 69);
+            this.FIOInput.Name = "FIOInput";
+            this.FIOInput.Size = new System.Drawing.Size(825, 30);
+            this.FIOInput.TabIndex = 0;
+            this.FIOInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lastNameInput
+            // FIOLabel
             // 
-            this.lastNameInput.BackColor = System.Drawing.SystemColors.Window;
-            this.lastNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lastNameInput.Location = new System.Drawing.Point(36, 69);
-            this.lastNameInput.Name = "lastNameInput";
-            this.lastNameInput.Size = new System.Drawing.Size(271, 30);
-            this.lastNameInput.TabIndex = 0;
-            this.lastNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pathronymicInput
-            // 
-            this.pathronymicInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pathronymicInput.Location = new System.Drawing.Point(590, 69);
-            this.pathronymicInput.Name = "pathronymicInput";
-            this.pathronymicInput.Size = new System.Drawing.Size(271, 30);
-            this.pathronymicInput.TabIndex = 2;
-            this.pathronymicInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // firstNameLabel
-            // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameLabel.Location = new System.Drawing.Point(425, 41);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(54, 25);
-            this.firstNameLabel.TabIndex = 1;
-            this.firstNameLabel.Text = "Имя";
-            // 
-            // secondNameLabel
-            // 
-            this.secondNameLabel.AutoSize = true;
-            this.secondNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.secondNameLabel.Location = new System.Drawing.Point(128, 41);
-            this.secondNameLabel.Name = "secondNameLabel";
-            this.secondNameLabel.Size = new System.Drawing.Size(103, 25);
-            this.secondNameLabel.TabIndex = 1;
-            this.secondNameLabel.Text = "Фамилия";
-            // 
-            // pathronymicLabel
-            // 
-            this.pathronymicLabel.AutoSize = true;
-            this.pathronymicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pathronymicLabel.Location = new System.Drawing.Point(690, 41);
-            this.pathronymicLabel.Name = "pathronymicLabel";
-            this.pathronymicLabel.Size = new System.Drawing.Size(104, 25);
-            this.pathronymicLabel.TabIndex = 1;
-            this.pathronymicLabel.Text = "Отчество";
+            this.FIOLabel.AutoSize = true;
+            this.FIOLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FIOLabel.Location = new System.Drawing.Point(423, 41);
+            this.FIOLabel.Name = "FIOLabel";
+            this.FIOLabel.Size = new System.Drawing.Size(60, 25);
+            this.FIOLabel.TabIndex = 1;
+            this.FIOLabel.Text = "ФИО";
             // 
             // positionLabel
             // 
@@ -163,7 +121,7 @@
             this.acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.acceptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.acceptBtn.ForeColor = System.Drawing.Color.Black;
-            this.acceptBtn.Location = new System.Drawing.Point(704, 554);
+            this.acceptBtn.Location = new System.Drawing.Point(704, 539);
             this.acceptBtn.Name = "acceptBtn";
             this.acceptBtn.Size = new System.Drawing.Size(152, 50);
             this.acceptBtn.TabIndex = 101;
@@ -180,7 +138,7 @@
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cancelBtn.ForeColor = System.Drawing.Color.Black;
-            this.cancelBtn.Location = new System.Drawing.Point(529, 554);
+            this.cancelBtn.Location = new System.Drawing.Point(529, 539);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(152, 50);
             this.cancelBtn.TabIndex = 100;
@@ -303,21 +261,21 @@
             this.customerRelationsOfficerCheck.Text = "Сотр. отдела по работе с клиентами";
             this.customerRelationsOfficerCheck.UseVisualStyleBackColor = true;
             // 
-            // administratieOfficerCheck
+            // administrativeOfficerCheck
             // 
-            this.administratieOfficerCheck.AutoSize = true;
-            this.administratieOfficerCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.administratieOfficerCheck.Location = new System.Drawing.Point(468, 57);
-            this.administratieOfficerCheck.Name = "administratieOfficerCheck";
-            this.administratieOfficerCheck.Size = new System.Drawing.Size(320, 24);
-            this.administratieOfficerCheck.TabIndex = 7;
-            this.administratieOfficerCheck.Text = "Сотр. административного отдела";
-            this.administratieOfficerCheck.UseVisualStyleBackColor = true;
+            this.administrativeOfficerCheck.AutoSize = true;
+            this.administrativeOfficerCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.administrativeOfficerCheck.Location = new System.Drawing.Point(468, 57);
+            this.administrativeOfficerCheck.Name = "administrativeOfficerCheck";
+            this.administrativeOfficerCheck.Size = new System.Drawing.Size(320, 24);
+            this.administrativeOfficerCheck.TabIndex = 7;
+            this.administrativeOfficerCheck.Text = "Сотр. административного отдела";
+            this.administrativeOfficerCheck.UseVisualStyleBackColor = true;
             // 
             // rolePanel
             // 
             this.rolePanel.BackColor = System.Drawing.SystemColors.Window;
-            this.rolePanel.Controls.Add(this.administratieOfficerCheck);
+            this.rolePanel.Controls.Add(this.administrativeOfficerCheck);
             this.rolePanel.Controls.Add(this.customerRelationsOfficerCheck);
             this.rolePanel.Controls.Add(this.mediaOfficerCheck);
             this.rolePanel.Controls.Add(this.productionOfficerCheck);
@@ -344,7 +302,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(883, 634);
+            this.ClientSize = new System.Drawing.Size(883, 619);
             this.Controls.Add(this.BlockedFlag);
             this.Controls.Add(this.rolePanel);
             this.Controls.Add(this.cancelBtn);
@@ -358,12 +316,8 @@
             this.Controls.Add(this.LoginLabel);
             this.Controls.Add(this.positionInput);
             this.Controls.Add(this.positionLabel);
-            this.Controls.Add(this.pathronymicLabel);
-            this.Controls.Add(this.secondNameLabel);
-            this.Controls.Add(this.firstNameLabel);
-            this.Controls.Add(this.pathronymicInput);
-            this.Controls.Add(this.lastNameInput);
-            this.Controls.Add(this.firstNameInput);
+            this.Controls.Add(this.FIOLabel);
+            this.Controls.Add(this.FIOInput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -376,13 +330,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox firstNameInput;
-        private System.Windows.Forms.TextBox lastNameInput;
-        private System.Windows.Forms.TextBox pathronymicInput;
-        private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.Label secondNameLabel;
-        private System.Windows.Forms.Label pathronymicLabel;
+        private System.Windows.Forms.TextBox FIOInput;
+        private System.Windows.Forms.Label FIOLabel;
         private System.Windows.Forms.Label positionLabel;
         private System.Windows.Forms.TextBox positionInput;
         private System.Windows.Forms.Label departmentLabel;
@@ -400,7 +349,7 @@
         private System.Windows.Forms.CheckBox productionOfficerCheck;
         private System.Windows.Forms.CheckBox mediaOfficerCheck;
         private System.Windows.Forms.CheckBox customerRelationsOfficerCheck;
-        private System.Windows.Forms.CheckBox administratieOfficerCheck;
+        private System.Windows.Forms.CheckBox administrativeOfficerCheck;
         private System.Windows.Forms.Panel rolePanel;
         private System.Windows.Forms.CheckBox BlockedFlag;
     }

@@ -56,11 +56,19 @@ namespace WindowsFormsApp1.Entity
 
             string queue = "Update \"Employee\" set \"FIO\" = \'" + FIO
                             + "\', \"Position\" = \'" + Position
-                            + "\', \"ID_Department\" = " + ID_Dep 
-                            + ", \"Active\" = " + Active.ToString() 
-                            + ", \"Username\" = " + Username + " where \"ID_Employee = " + ID + ";";
-            NpgsqlCommand npgsqlCommand = new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection);
-            npgsqlCommand.ExecuteNonQuery();
+                            + "\', \"ID_Department\" = " + ID_Dep
+                            + ", \"Active\" = " + Active.ToString()
+                            + " where \"ID_Employee\" = " + ID + ";";
+            new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection).ExecuteNonQuery();
+            foreach (var role in AccessControl.nameRole2idRole) {
+                if ((Role & role.Value) != 0)
+                {
+                    DBWork.Grant(role.Key, Username);
+                }
+                else {
+                    DBWork.Revoke(role.Key, Username);
+                }
+            }
         }
 
         public void AddNew()
