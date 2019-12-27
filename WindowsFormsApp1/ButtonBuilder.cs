@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
@@ -25,7 +21,7 @@ namespace WindowsFormsApp1
         }
 
         private static void OpenEmployeeForm(object sender, EventArgs e) {
-            EmployeeForm ef = new EmployeeForm();
+            EmployeeForm ef = new EmployeeForm(17);
             ef.ShowDialog();    //форма вызывается в модальном режиме
         }
     }

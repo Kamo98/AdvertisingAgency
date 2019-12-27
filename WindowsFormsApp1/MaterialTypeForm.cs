@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class MaterialTypeForm : Form
-    {
+    {/*
 		static String[] ClientsFields = { "Name" };
 		NpgsqlConnection connection;
 
@@ -37,7 +37,6 @@ namespace WindowsFormsApp1
 			gridWrapperTypeMaterials.UpdateTable();
 		}
 
-
-
+        */
 	}
 }

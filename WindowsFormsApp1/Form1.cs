@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using System.Data.Common;
-using System.Collections;
+using WindowsFormsApp1.Entity;
 
 namespace WindowsFormsApp1
 {
@@ -22,17 +16,6 @@ namespace WindowsFormsApp1
             ConnectionSettings.npgSqlConnection = null;
 		}
 
-        //Свойство сотрудника, для передачи дочерним формам
-        public Employee Employee
-        {
-            get => employee;
-            set => employee = value;
-        }
-
-        public NpgsqlConnection Connection
-        {
-            get => npgSqlConnection;
-        }
 
 
 		/*Авторизация*/
@@ -42,27 +25,33 @@ namespace WindowsFormsApp1
 			string login = textBoxLogin.Text;
 			string pass = textBoxPass.Text;
 
-			bool logIn = AccessControl.log_in(login, pass);
+			string message = AccessControl.log_in(login, pass);
 
-			if (npgSqlConnection != null)
+			if (ConnectionSettings.npgSqlConnection != null)
 			{
 
-				/*Получить из БД имя и должность сотрудника*/
-				string query = "select \"FIO\", \"Position\" from \"Employee\" where \"Username\" = '" + login + "';";
+				/*Получить из БД данные сотрудника*/
+				string query = "select * from \"Employee\" where \"Username\" = '" + login + "';";
 				NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, ConnectionSettings.npgSqlConnection);
 				NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 				if (npgSqlDataReader.HasRows)
 				{
 					foreach (DbDataRecord oneEmployee in npgSqlDataReader)
 					{
+                        npgSqlDataReader.Close();
                         //this.Text += "  | " + oneEmployee["FIO"] + "  |  " + oneEmployee["Position"];
-                        employee = new Employee(oneEmployee);
+                        ConnectionSettings.LoggedUser = new Employee(
+                                                                oneEmployee["ID_Employee"],
+                                                                oneEmployee["FIO"],
+                                                                oneEmployee["Position"],
+                                                                oneEmployee["ID_Department"],
+                                                                oneEmployee["Active"],
+                                                                oneEmployee["Username"]);
 						break;
 					}
 				}
-                npgSqlDataReader.Close();
+                
 
-                npgSqlDataReader.Close();
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());
 				panelAuthorization.Hide();      //Спрятать панель авторизаци
 

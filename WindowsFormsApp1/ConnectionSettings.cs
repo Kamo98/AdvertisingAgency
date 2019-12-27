@@ -12,5 +12,7 @@ namespace WindowsFormsApp1
     class ConnectionSettings
     {
         public static NpgsqlConnection npgSqlConnection { get; set; }
+
+        public static Entity.Employee LoggedUser { get; set; }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="AccessControl.cs" />
     <Compile Include="ButtonBuilder.cs" />
     <Compile Include="ConnectionSettings.cs" />
+    <Compile Include="DBWork.cs" />
     <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>

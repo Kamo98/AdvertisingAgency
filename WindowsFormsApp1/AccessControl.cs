@@ -91,7 +91,7 @@ namespace WindowsFormsApp1
 		 * Здесь устанавливается соединение с БД
 		 * и определяются роли пользователя
 		 * */
-		public static bool log_in(string login, string pass)
+		public static string log_in(string login, string pass)
 		{
 			string connectionString = "Server=database-2.cx7kyl76gv42.us-east-2.rds.amazonaws.com;Port=5432;User="
 							+ login + ";Password=" + pass + ";Database=Database2;";
@@ -99,16 +99,15 @@ namespace WindowsFormsApp1
             //Создание соединения с БД
 
             ConnectionSettings.npgSqlConnection = new NpgsqlConnection(connectionString);
-            ConnectionSettings.npgSqlConnection.Open();
 
             //Обработка исключения при создания исключения, тут выведется сообщение о неверном логине или пароле
             try
             {
-			    npgSqlConnection.Open();
+                ConnectionSettings.npgSqlConnection.Open();
             }
             catch(NpgsqlException e)
             {
-                npgSqlConnection = null;
+                ConnectionSettings.npgSqlConnection = null;
                 return "Неверный пользователь или пароль!";
             }
 
@@ -127,7 +126,7 @@ namespace WindowsFormsApp1
 			}
 			else
             {
-                npgSqlConnection = null;
+                ConnectionSettings.npgSqlConnection = null;
 				return "Данный пользователь не имеет прав для входа в систему";  //У пользователя вообще нет ролей
             }
 
