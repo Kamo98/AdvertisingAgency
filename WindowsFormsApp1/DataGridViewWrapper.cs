@@ -78,10 +78,11 @@ namespace WindowsFormsApp1
         int IdColumn = -1;  //Индекс колонки,где есть id
         Dictionary<int, Dictionary<int, String>> ComboBoxes; //Комбо-боксы нормальные
         Dictionary<int, Dictionary<String, int>> ComboBoxesInverted; //Комбо-боксы инвертированные
-        //List<String> updateQueries; //Запросы на обновление
-        Dictionary<int, String> updateQueries;
+
+        Dictionary<int, String> updateQueries; //Запросы на обновление
         Dictionary<int, String> insertQueries; //Запросы на добавление
         Dictionary<int, String> deleteQueries; //Запросы на удаление
+
         int insertedSeq; //Индексация для новых строк, находится в отрицательных значениях для их индентификации
         String where = "";
 
@@ -146,8 +147,15 @@ namespace WindowsFormsApp1
             grid.AllowUserToAddRows = false;
 
             //Устанавливаем одинаковую ширину для каждого столбца
-            int columnWidth = (grid.Width - grid.RowHeadersWidth) / (fields.Length - 1);
             int count = 0;
+            foreach (ColumnDataGridViewWrapper col in fields)
+            {
+                if (col.Type == FieldType.Id) IdColumn = count;
+                count++;
+            }
+            count = 0;
+
+            int columnWidth = (grid.Width - grid.RowHeadersWidth) / (fields.Length + (HasIdColumn ? -1 : 0));
 
             foreach (ColumnDataGridViewWrapper field in fields)
             {
@@ -169,7 +177,6 @@ namespace WindowsFormsApp1
                 }
                 else if (field.Type == FieldType.Id)
                 {
-                    IdColumn = count;
                     col.Visible = false;
                 }
                 grid.Columns.Add(col);
@@ -286,6 +293,9 @@ namespace WindowsFormsApp1
         //Заполняет DataGridView
         public void UpdateTable()
         {
+            updateQueries = null;
+            insertQueries = null;
+            deleteQueries = null;
             string query = "select ";
             int count = 0;
             foreach (ColumnDataGridViewWrapper column in fields)
@@ -293,7 +303,7 @@ namespace WindowsFormsApp1
                 query += column.FieldName;
                 if (++count != fields.Length) query += ",";
             }
-            query += "from " + tableName + " "+ where;
+            query += " from " + tableName + " "+ where;
 
             NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, connection);
             NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();

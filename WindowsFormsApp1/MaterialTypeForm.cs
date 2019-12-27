@@ -13,7 +13,9 @@ namespace WindowsFormsApp1
 {
     public partial class MaterialTypeForm : Form
     {
-		static String[] ClientsFields = { "Name" };
+        static String qts(String val) => "\"" + val + "\"";
+        static ColumnDataGridViewWrapper[] ClientsFields = { new ColumnDataGridViewWrapper("jff",qts("ID_Type"),FieldType.Id),
+                                                             new ColumnDataGridViewWrapper("Наименование", qts("Name"), FieldType.Text) };
 		NpgsqlConnection connection;
 
 		DataGridViewWrapper gridWrapperTypeMaterials;
@@ -27,7 +29,7 @@ namespace WindowsFormsApp1
 
 		private void InitTable()
 		{
-			gridWrapperTypeMaterials = new DataGridViewWrapper(dataGridViewTypeMaterials, connection, "MaterialType", ClientsFields);
+			gridWrapperTypeMaterials = new DataGridViewWrapper(dataGridViewTypeMaterials, connection, qts("MaterialType"), ClientsFields);
 			UpdateTable();
 		}
 
