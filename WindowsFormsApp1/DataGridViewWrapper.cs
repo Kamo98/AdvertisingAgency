@@ -362,6 +362,7 @@ namespace WindowsFormsApp1
         //Коммит, все запросы отправляются в бд
         public void Commit()
         {
+            if (updateQueries == null) return;
             foreach (var query in updateQueries)
                 if (query.Value != null)
                     new NpgsqlCommand(query.Value,connection).ExecuteNonQuery();
@@ -377,9 +378,6 @@ namespace WindowsFormsApp1
             updateQueries.Clear();
             insertQueries.Clear();
             deleteQueries.Clear();
-            updateQueries = null;
-            insertQueries = null;
-            deleteQueries = null;
         }
 
         //Возвращает true, если у таблицы есть колонка с id
