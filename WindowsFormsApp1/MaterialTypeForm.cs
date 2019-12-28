@@ -12,7 +12,13 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class MaterialTypeForm : Form
-    {/*
+    {
+
+		static ColumnDataGridViewWrapper[] MaterialTypeFields = {
+			new ColumnDataGridViewWrapper("ID_Type", "\"ID_Type\"",FieldType.Id),
+			new ColumnDataGridViewWrapper("Тип материала", "\"Name\"",FieldType.Text)
+		};
+
 		static String[] ClientsFields = { "Name" };
 		NpgsqlConnection connection;
 
@@ -27,8 +33,13 @@ namespace WindowsFormsApp1
 
 		private void InitTable()
 		{
-			gridWrapperTypeMaterials = new DataGridViewWrapper(dataGridViewTypeMaterials, connection, "MaterialType", ClientsFields);
+			gridWrapperTypeMaterials = new DataGridViewWrapper(dataGridViewTypeMaterials, connection, "\"MaterialType\"", MaterialTypeFields);
 			UpdateTable();
+
+			dataGridViewTypeMaterials.ReadOnly = true;
+
+			if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.production_officer) != 0)
+				dataGridViewTypeMaterials.ReadOnly = false;
 		}
 
 
@@ -37,6 +48,9 @@ namespace WindowsFormsApp1
 			gridWrapperTypeMaterials.UpdateTable();
 		}
 
-        */
+		private void buttonTypeMaterialsSave_Click(object sender, EventArgs e)
+		{
+			gridWrapperTypeMaterials.Commit();
+		}
 	}
 }

@@ -44,7 +44,6 @@ C:\Users\1\Source\Repos\Kamo98\AdvertisingAgency\WindowsFormsApp1\obj\Debug\Wind
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BaseForm.resources
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ClientDepartmentForm.resources
 H:\Университет\7 сем\СУБД\L7\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialTypeForm.resources
-D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
 D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.EmployeeForm.resources
 D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialTypeForm.resources
@@ -67,3 +66,11 @@ D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\fr\Npgsql.resources.dll
 D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\ja\Npgsql.resources.dll
 D:\Git\AdvertisingAgency\WindowsFormsApp1\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BaseForm.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChiefOfAgencyForm.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddNewRowMaterialRequest.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ClientDepartmentForm.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MaterialRequest.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TypeOfProduct.resources
+D:\Git\AdvertisingAgency\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddProjectForm.resources

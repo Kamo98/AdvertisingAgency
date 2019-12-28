@@ -30,6 +30,11 @@ namespace WindowsFormsApp1
             this.parentForm = parent;
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            parentForm.Show();
+        }
+
         public BaseForm()
         {
             InitializeComponent();
@@ -61,22 +66,22 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show("Вы уверены, что хотите выйти из учётной записи?", "Выход из учётной записи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                this.Hide();
-                parentForm.Show();
+                this.Close();
             }
         }
 
         private void текущийПрофильToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ФИО: " + parentForm.Employee.FIO + "\n" +
-                            "Должность: " + parentForm.Employee.Position + "\n" +
+            MessageBox.Show("ФИО: " + ConnectionSettings.LoggedUser.FIO + "\n" +
+                            "Должность: " + ConnectionSettings.LoggedUser.Position + "\n" +
                             "Участник групп: " + AccessControl.get_name_cur_role());
         }
-
+        
 		private void типыМатериаловToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			MaterialTypeForm form = new MaterialTypeForm(parentForm.Connection);
+			MaterialTypeForm form = new MaterialTypeForm(ConnectionSettings.npgSqlConnection);
 			form.ShowDialog();
 		}
-	}
+
+    }
 }

@@ -53,13 +53,25 @@ namespace WindowsFormsApp1
                 
 
 				MessageBox.Show("Здравствуйте, " + login + "\nВы: " + AccessControl.get_name_cur_role());
-				panelAuthorization.Hide();      //Спрятать панель авторизаци
+				this.Hide();      //Спрятать окно авторизаци
+                if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.chief_of_agency) != 0)
+                {
+                    ChiefOfAgencyForm chief = new ChiefOfAgencyForm(this);
+                    chief.Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.administrative_officer) != 0) {
+                     MaterialRequest matReq = new MaterialRequest(ConnectionSettings.npgSqlConnection, this);
+                    matReq.Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.customer_relations_officer) != 0)
+                {
+                    ClientDepartmentForm matReq = new ClientDepartmentForm(this);
+                    matReq.Show();
+                }
+                //   Show();
+                //и создать меню
+                //	create_menu();
 
-					//и создать меню
-				create_menu();
-
-
-                this.Controls.Add(ButtonBuilder.Get_AddEmployeeBtn());
             }
 			else
 			{
@@ -86,7 +98,7 @@ namespace WindowsFormsApp1
 		 * Метод для создания меню
 		 * Создаёт меню для авторизированного пользователя
 		 * */
-		public void create_menu()
+		/*public void create_menu()
 		{
 
 			//Инициализируем подпукнты меню
@@ -114,7 +126,7 @@ namespace WindowsFormsApp1
 			mainMenuStrip.Items.Add(new ToolStripMenuItem("My text", null, arrForTest1.ToArray()));
 		}
 
-
+        */
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			if (ConnectionSettings.npgSqlConnection != null)

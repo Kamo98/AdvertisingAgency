@@ -68,6 +68,7 @@
 			this.buttonTypeMaterialsSave.TabIndex = 3;
 			this.buttonTypeMaterialsSave.Text = "Сохранить";
 			this.buttonTypeMaterialsSave.UseVisualStyleBackColor = true;
+			this.buttonTypeMaterialsSave.Click += new System.EventHandler(this.buttonTypeMaterialsSave_Click);
 			// 
 			// MaterialTypeForm
 			// 

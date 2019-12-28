@@ -29,31 +29,44 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabClientPage = new System.Windows.Forms.TabPage();
+            this.buttonAddClient = new System.Windows.Forms.Button();
             this.buttonClientsUpdate = new System.Windows.Forms.Button();
             this.buttonClientsSave = new System.Windows.Forms.Button();
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
             this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneColumn = new WindowsFormsApp1.DataGridViewNumberColumn();
+            this.Column1 = new WindowsFormsApp1.DataGridViewDateColumn();
             this.tabOrderPage = new System.Windows.Forms.TabPage();
+            this.buttonAddOrder = new System.Windows.Forms.Button();
             this.buttonOrdersUpdate = new System.Windows.Forms.Button();
             this.buttonOrdersSave = new System.Windows.Forms.Button();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
+            this.promotionalPage = new System.Windows.Forms.TabPage();
+            this.buttonProjectAdd = new System.Windows.Forms.Button();
+            this.buttonProjectUpdate = new System.Windows.Forms.Button();
+            this.buttonProjectSave = new System.Windows.Forms.Button();
+            this.dataGridViewProjects = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabClientPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             this.tabOrderPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
+            this.promotionalPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabClientPage);
             this.tabControl1.Controls.Add(this.tabOrderPage);
+            this.tabControl1.Controls.Add(this.promotionalPage);
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -63,6 +76,7 @@
             // tabClientPage
             // 
             this.tabClientPage.BackColor = System.Drawing.Color.LightGray;
+            this.tabClientPage.Controls.Add(this.buttonAddClient);
             this.tabClientPage.Controls.Add(this.buttonClientsUpdate);
             this.tabClientPage.Controls.Add(this.buttonClientsSave);
             this.tabClientPage.Controls.Add(this.dataGridViewClients);
@@ -73,6 +87,16 @@
             this.tabClientPage.TabIndex = 0;
             this.tabClientPage.Text = "Клиенты";
             // 
+            // buttonAddClient
+            // 
+            this.buttonAddClient.Location = new System.Drawing.Point(547, 350);
+            this.buttonAddClient.Name = "buttonAddClient";
+            this.buttonAddClient.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddClient.TabIndex = 3;
+            this.buttonAddClient.Text = "Добавить";
+            this.buttonAddClient.UseVisualStyleBackColor = true;
+            this.buttonAddClient.Click += new System.EventHandler(this.buttonAddClient_Click);
+            // 
             // buttonClientsUpdate
             // 
             this.buttonClientsUpdate.Location = new System.Drawing.Point(628, 350);
@@ -81,6 +105,7 @@
             this.buttonClientsUpdate.TabIndex = 2;
             this.buttonClientsUpdate.Text = "Обновить";
             this.buttonClientsUpdate.UseVisualStyleBackColor = true;
+            this.buttonClientsUpdate.Click += new System.EventHandler(this.buttonClientsUpdate_Click);
             // 
             // buttonClientsSave
             // 
@@ -90,6 +115,7 @@
             this.buttonClientsSave.TabIndex = 1;
             this.buttonClientsSave.Text = "Сохранить";
             this.buttonClientsSave.UseVisualStyleBackColor = true;
+            this.buttonClientsSave.Click += new System.EventHandler(this.buttonClientsSave_Click);
             // 
             // dataGridViewClients
             // 
@@ -99,7 +125,8 @@
             this.EmailColumn,
             this.AddressColumn,
             this.NameColumn,
-            this.NumberColumn});
+            this.PhoneColumn,
+            this.Column1});
             this.dataGridViewClients.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.Size = new System.Drawing.Size(792, 344);
@@ -121,14 +148,28 @@
             this.NameColumn.HeaderText = "Ф.И.О";
             this.NameColumn.Name = "NameColumn";
             // 
-            // NumberColumn
+            // PhoneColumn
             // 
-            this.NumberColumn.HeaderText = "Телефон";
-            this.NumberColumn.Name = "NumberColumn";
+            dataGridViewCellStyle11.Format = "d";
+            this.PhoneColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.PhoneColumn.HeaderText = "Телефон";
+            this.PhoneColumn.Name = "PhoneColumn";
+            this.PhoneColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PhoneColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.Format = "d";
+            dataGridViewCellStyle12.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
             // 
             // tabOrderPage
             // 
             this.tabOrderPage.BackColor = System.Drawing.Color.LightGray;
+            this.tabOrderPage.Controls.Add(this.buttonAddOrder);
             this.tabOrderPage.Controls.Add(this.buttonOrdersUpdate);
             this.tabOrderPage.Controls.Add(this.buttonOrdersSave);
             this.tabOrderPage.Controls.Add(this.dataGridViewOrders);
@@ -139,6 +180,16 @@
             this.tabOrderPage.TabIndex = 1;
             this.tabOrderPage.Text = "Заказы";
             // 
+            // buttonAddOrder
+            // 
+            this.buttonAddOrder.Location = new System.Drawing.Point(547, 350);
+            this.buttonAddOrder.Name = "buttonAddOrder";
+            this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddOrder.TabIndex = 5;
+            this.buttonAddOrder.Text = "Добавить";
+            this.buttonAddOrder.UseVisualStyleBackColor = true;
+            this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
+            // 
             // buttonOrdersUpdate
             // 
             this.buttonOrdersUpdate.Location = new System.Drawing.Point(628, 350);
@@ -147,6 +198,7 @@
             this.buttonOrdersUpdate.TabIndex = 4;
             this.buttonOrdersUpdate.Text = "Обновить";
             this.buttonOrdersUpdate.UseVisualStyleBackColor = true;
+            this.buttonOrdersUpdate.Click += new System.EventHandler(this.buttonOrdersUpdate_Click);
             // 
             // buttonOrdersSave
             // 
@@ -156,6 +208,7 @@
             this.buttonOrdersSave.TabIndex = 3;
             this.buttonOrdersSave.Text = "Сохранить";
             this.buttonOrdersSave.UseVisualStyleBackColor = true;
+            this.buttonOrdersSave.Click += new System.EventHandler(this.buttonOrdersSave_Click);
             // 
             // dataGridViewOrders
             // 
@@ -165,6 +218,58 @@
             this.dataGridViewOrders.Name = "dataGridViewOrders";
             this.dataGridViewOrders.Size = new System.Drawing.Size(792, 344);
             this.dataGridViewOrders.TabIndex = 1;
+            // 
+            // promotionalPage
+            // 
+            this.promotionalPage.BackColor = System.Drawing.Color.LightGray;
+            this.promotionalPage.Controls.Add(this.buttonProjectAdd);
+            this.promotionalPage.Controls.Add(this.buttonProjectUpdate);
+            this.promotionalPage.Controls.Add(this.buttonProjectSave);
+            this.promotionalPage.Controls.Add(this.dataGridViewProjects);
+            this.promotionalPage.Location = new System.Drawing.Point(4, 22);
+            this.promotionalPage.Name = "promotionalPage";
+            this.promotionalPage.Padding = new System.Windows.Forms.Padding(3);
+            this.promotionalPage.Size = new System.Drawing.Size(792, 392);
+            this.promotionalPage.TabIndex = 2;
+            this.promotionalPage.Text = "Рекламные проекты";
+            // 
+            // buttonProjectAdd
+            // 
+            this.buttonProjectAdd.Location = new System.Drawing.Point(547, 350);
+            this.buttonProjectAdd.Name = "buttonProjectAdd";
+            this.buttonProjectAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonProjectAdd.TabIndex = 3;
+            this.buttonProjectAdd.Text = "Добавить";
+            this.buttonProjectAdd.UseVisualStyleBackColor = true;
+            this.buttonProjectAdd.Click += new System.EventHandler(this.buttonProjectAdd_Click);
+            // 
+            // buttonProjectUpdate
+            // 
+            this.buttonProjectUpdate.Location = new System.Drawing.Point(628, 350);
+            this.buttonProjectUpdate.Name = "buttonProjectUpdate";
+            this.buttonProjectUpdate.Size = new System.Drawing.Size(75, 23);
+            this.buttonProjectUpdate.TabIndex = 2;
+            this.buttonProjectUpdate.Text = "Обновить";
+            this.buttonProjectUpdate.UseVisualStyleBackColor = true;
+            this.buttonProjectUpdate.Click += new System.EventHandler(this.buttonProjectUpdate_Click);
+            // 
+            // buttonProjectSave
+            // 
+            this.buttonProjectSave.Location = new System.Drawing.Point(709, 350);
+            this.buttonProjectSave.Name = "buttonProjectSave";
+            this.buttonProjectSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonProjectSave.TabIndex = 1;
+            this.buttonProjectSave.Text = "Сохранить";
+            this.buttonProjectSave.UseVisualStyleBackColor = true;
+            this.buttonProjectSave.Click += new System.EventHandler(this.buttonProjectSave_Click);
+            // 
+            // dataGridViewProjects
+            // 
+            this.dataGridViewProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProjects.Location = new System.Drawing.Point(-4, 0);
+            this.dataGridViewProjects.Name = "dataGridViewProjects";
+            this.dataGridViewProjects.Size = new System.Drawing.Size(800, 344);
+            this.dataGridViewProjects.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -185,6 +290,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).EndInit();
             this.tabOrderPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
+            this.promotionalPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,10 +308,18 @@
         private System.Windows.Forms.Button buttonClientsSave;
         private System.Windows.Forms.Button buttonOrdersUpdate;
         private System.Windows.Forms.Button buttonOrdersSave;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberColumn;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private DataGridViewNumberColumn PhoneColumn;
+        private DataGridViewDateColumn Column1;
+        private System.Windows.Forms.Button buttonAddClient;
+        private System.Windows.Forms.Button buttonAddOrder;
+        private System.Windows.Forms.TabPage promotionalPage;
+        private System.Windows.Forms.Button buttonProjectAdd;
+        private System.Windows.Forms.Button buttonProjectUpdate;
+        private System.Windows.Forms.Button buttonProjectSave;
+        private System.Windows.Forms.DataGridView dataGridViewProjects;
     }
 }

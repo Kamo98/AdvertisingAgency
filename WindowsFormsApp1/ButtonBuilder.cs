@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
         }
 
         private static void OpenEmployeeForm(object sender, EventArgs e) {
-            EmployeeForm ef = new EmployeeForm(5);
+            EmployeeForm ef = new EmployeeForm();
             ef.ShowDialog();    //форма вызывается в модальном режиме
         }
     }

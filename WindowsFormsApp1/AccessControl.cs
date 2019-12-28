@@ -64,11 +64,6 @@ namespace WindowsFormsApp1
 		};
 
 
-		/*Роль авторизированного пользователя*/
-		private static Role currentRole = 0;
-		public static Role CurrentRole { get => currentRole;}
-
-
 		/*
 		 * Возвращает строку из ролей
 		 * Просто для тестирования **/
@@ -77,7 +72,7 @@ namespace WindowsFormsApp1
 			//ArrayList roles = new ArrayList();
 			string res = "";
 			foreach (KeyValuePair<Role, string> role in idRole2nameRole)
-				if ((currentRole & role.Key) != 0)
+				if ((ConnectionSettings.LoggedUser.Role & role.Key) != 0)
 					//roles.Add(role.Value);
 					res += role.Value + "  ";
 			return res;
@@ -117,19 +112,12 @@ namespace WindowsFormsApp1
 			NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query_roles, ConnectionSettings.npgSqlConnection);
 			NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 
-			if (npgSqlDataReader.HasRows)
-			{
-				//Проходим по всем ролям авторизированного пользователя и заполняем currentRole
-				foreach (DbDataRecord dbDataRecord in npgSqlDataReader)
-					if (nameRole2idRole.ContainsKey(dbDataRecord["role_name"].ToString()))
-						currentRole |= nameRole2idRole[dbDataRecord["role_name"].ToString()];
-			}
-			else
+			if (!npgSqlDataReader.HasRows)
             {
                 ConnectionSettings.npgSqlConnection = null;
 				return "Данный пользователь не имеет прав для входа в систему";  //У пользователя вообще нет ролей
             }
-
+            npgSqlDataReader.Close();
 			//Если currentRole = 0, то у пользователя нет интересующих нас ролей
 			//return currentRole != 0;
 			return "Всё ок";
