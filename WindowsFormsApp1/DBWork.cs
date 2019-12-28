@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
          * Создаем пользователя в БД
          */
         public static void CreateUser(string username, string password, AccessControl.Role role = 0) {
-            queue = "Create user " + username + " with password \'" + password + "\'";
+            queue = "Create user \"" + username + "\" with password \'" + password + "\'";
             command = new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection);
             command.ExecuteNonQuery();
             for (int i = 1; i <= 128; i *= 2) {

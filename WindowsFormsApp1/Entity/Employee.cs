@@ -58,7 +58,8 @@ namespace WindowsFormsApp1.Entity
                             + "\', \"Position\" = \'" + Position
                             + "\', \"ID_Department\" = " + ID_Dep
                             + ", \"Active\" = " + Active.ToString()
-                            + " where \"ID_Employee\" = " + ID + ";";
+                            + ", \"Username\" = \'" + Username 
+                            + "\' where \"ID_Employee\" = " + ID + ";";
             new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection).ExecuteNonQuery();
             foreach (var role in AccessControl.nameRole2idRole) {
                 if ((Role & role.Value) != 0)
@@ -73,8 +74,8 @@ namespace WindowsFormsApp1.Entity
 
         public void AddNew()
         {
-            string queue = "Insert into \"Employee\"(\"FIO\", \"Position\", \"ID_Department\", \"Active\") values(\'"
-                + FIO + "\', \'" + Position + "\', " + ID_Dep + ", " + Active.ToString() + ");";
+            string queue = "Insert into \"Employee\"(\"FIO\", \"Position\", \"ID_Department\", \"Active\", \"Username\") values(\'"
+                + FIO + "\', \'" + Position + "\', " + ID_Dep + ", " + Active.ToString() + ", \'" + Username + "\');";
             NpgsqlCommand command = new NpgsqlCommand(queue, ConnectionSettings.npgSqlConnection);
             command.ExecuteNonQuery();
         }

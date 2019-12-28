@@ -59,7 +59,7 @@ namespace WindowsFormsApp1
                     ChiefOfAgencyForm chief = new ChiefOfAgencyForm(this);
                     chief.Show();
                 }
-                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.administrative_officer) != 0) {
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.production_officer) != 0) {
                      MaterialRequest matReq = new MaterialRequest(ConnectionSettings.npgSqlConnection, this);
                     matReq.Show();
                 }
@@ -67,6 +67,31 @@ namespace WindowsFormsApp1
                 {
                     ClientDepartmentForm matReq = new ClientDepartmentForm(this);
                     matReq.Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.chief_of_department) != 0)
+                {
+                    MessageBox.Show("Функция не доступна");
+                    Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.team_leader) != 0)
+                {
+                    MessageBox.Show("Функция не доступна");
+                    Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.creative_officer) != 0)
+                {
+                    MessageBox.Show("Функция не доступна");
+                    Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.media_officer) != 0)
+                {
+                    MessageBox.Show("Функция не доступна");
+                    Show();
+                }
+                else if ((ConnectionSettings.LoggedUser.Role & AccessControl.Role.administrative_officer) != 0)
+                {
+                    MessageBox.Show("Функция не доступна");
+                    Show();
                 }
                 //   Show();
                 //и создать меню

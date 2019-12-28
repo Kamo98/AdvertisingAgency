@@ -99,7 +99,9 @@
     <Compile Include="MaterialRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaterialRequest.Designer.cs" />
+    <Compile Include="MaterialRequest.designer.cs">
+      <DependentUpon>MaterialRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaterialTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,7 +132,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaterialRequest.resx" />
+    <EmbeddedResource Include="MaterialRequest.resx">
+      <DependentUpon>MaterialRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaterialTypeForm.resx">
       <DependentUpon>MaterialTypeForm.cs</DependentUpon>
     </EmbeddedResource>

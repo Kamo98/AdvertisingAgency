@@ -66,6 +66,8 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show("Вы уверены, что хотите выйти из учётной записи?", "Выход из учётной записи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                ConnectionSettings.npgSqlConnection.Close();
+                ConnectionSettings.npgSqlConnection = null;
                 this.Close();
             }
         }

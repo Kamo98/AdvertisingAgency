@@ -62,25 +62,32 @@ namespace WindowsFormsApp1
 				"from \"MaterialRequest\", \"RowMaterialRequest\"" +
 				"where \"MaterialRequest\".\"ID_MaterialRequest\" = \"RowMaterialRequest\".\"ID_MaterialRequest\"";
 
-			if (idProject != -1)
+
+            /*query = "select sum(mat.\"Cost\" * rmat.\"Amount\") from \"Material\" mat, \"RowMaterialRequest\" rmat,\"  where   mat.\"ID_Material\" = rmat.\"ID_Material\" and rmat.\"ID_MaterialRequest\" = req.\"ID_MaterialRequest\" ";
+            new NpgsqlCommand(qu)*/
+            if (idProject != -1)
 				query += "and m.\"ID_Project\" = " + idProject;
 			query += "group by \"MaterialRequest\".\"ID_MaterialRequest\"";
+
+            
 
 			NpgsqlCommand npgSqlCommand = new NpgsqlCommand(query, connection);
 			NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
 			if (npgSqlDataReader.HasRows)
 			{
 				dataGridViewMaterialRequest.Rows.Clear();
-				object[] objects = new object[4];
+				object[] objects = new object[5];
 				foreach (DbDataRecord oneRow in npgSqlDataReader)
 				{
 					oneRow.GetValues(objects);
 					objects[3] = "просмотреть запрос";
+                    objects[4] = 0;
 					dataGridViewMaterialRequest.Rows.Add(objects);
 				}
 			}
 			npgSqlDataReader.Close();
 
+            
 
 			materials = new List<string>();
 			material2Id = new Dictionary<string, int>();
@@ -103,7 +110,7 @@ namespace WindowsFormsApp1
 		//Переход к просмотру строк запроса
 		private void dataGridViewMaterialRequest_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (e.ColumnIndex == dataGridViewMaterialRequest.ColumnCount - 1)
+			if (e.ColumnIndex == dataGridViewMaterialRequest.ColumnCount - 2)
 			{       //Клик по ссылке посмотреть запрос
 
 
