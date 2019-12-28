@@ -114,7 +114,8 @@ namespace WindowsFormsApp1
             /*
              * Заблокируемвозможность смены логина
              * */
-            LoginBox.Enabled = false;
+            if (currentEmployee.Username != null)
+                LoginBox.Enabled = false;
         }
 
 
