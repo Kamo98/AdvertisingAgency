@@ -51,9 +51,10 @@ namespace WindowsFormsApp1
         {
             try { Int32.Parse(charCode.ToString());}
             catch { return false; }
-            return true;                     
+            return true;  
         }
 
+        
         protected override bool ProcessDialogChar(char charCode)
         {
             return true;

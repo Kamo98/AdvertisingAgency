@@ -18,7 +18,8 @@ namespace WindowsFormsApp1
         Text,
         Float,
         List,
-        Bool
+        Bool,
+        Button
     }
 
     //Пока передумал использовать этот класс, но возможно потом, когда-нибудь)
@@ -28,7 +29,11 @@ namespace WindowsFormsApp1
         String fieldName;
         FieldType type;
         String sqlQuery;
+        String buttonText;
+        public delegate void Handler(object sender, DataGridViewCellEventArgs e);
+        Handler handler;
 
+        public Handler EventHandler => handler;
         public FieldType Type
         {
             get => type;
@@ -55,6 +60,8 @@ namespace WindowsFormsApp1
             set => sqlQuery = value;
         }
 
+        public String ButtonText => buttonText;
+
         public ColumnDataGridViewWrapper(String nameAs,String fieldName,FieldType type)
         {
             this.NameAs = nameAs;
@@ -62,7 +69,16 @@ namespace WindowsFormsApp1
             this.type = type;
         }
 
-        public ColumnDataGridViewWrapper(String nameAs, String fieldName, FieldType type, String query) : this(nameAs,fieldName,type)
+        public ColumnDataGridViewWrapper(String nameAs, String fieldName, Handler func,String buttonText)
+            : this(nameAs,fieldName, FieldType.Button)
+        {
+            
+            this.handler = func;
+            this.buttonText = buttonText;
+        }
+
+        public ColumnDataGridViewWrapper(String nameAs, String fieldName, FieldType type, String query) 
+            : this(nameAs,fieldName,type)
         {
             this.sqlQuery = query;
         }
@@ -112,6 +128,7 @@ namespace WindowsFormsApp1
                 case FieldType.List: return new DataGridViewComboBoxColumn();
                 case FieldType.Id: return new DataGridViewTextBoxColumn();
                 case FieldType.Bool: return new DataGridViewCheckBoxColumn();
+                case FieldType.Button: return new DataGridViewLinkColumn();
                 default: return null;
             }
         }
@@ -139,6 +156,7 @@ namespace WindowsFormsApp1
             grid.CellEndEdit += new DataGridViewCellEventHandler(OnEndEdit);
             grid.RowsAdded += new DataGridViewRowsAddedEventHandler(OnInsert);
             grid.UserDeletingRow += new DataGridViewRowCancelEventHandler(OnDelete);
+            grid.CellContentClick += new DataGridViewCellEventHandler(OnClick);
 
             if (grid.Columns.Count != 0) grid.Columns.Clear();
             ComboBoxes = new Dictionary<int, Dictionary<int, String>>();
@@ -179,9 +197,19 @@ namespace WindowsFormsApp1
                 {
                     col.Visible = false;
                 }
+                else if(field.Type == FieldType.Button)
+                {
+                    ((DataGridViewLinkColumn)col).Text = field.ButtonText;
+                }
                 grid.Columns.Add(col);
                 count++;
             }
+        }
+
+        private void OnClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (ColumnDataGridViewWrapper col in fields)
+                if (col.Type == FieldType.Button) col.EventHandler(sender, e);
         }
 
         object value; //Сюда ловим значение из ячейки
